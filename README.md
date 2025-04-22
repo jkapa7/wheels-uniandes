@@ -1,12 +1,74 @@
-# React + Vite
+# Wheels Uniandes 🚲
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+¡Bienvenido a Wheels Uniandes! 
 
-Currently, two official plugins are available:
+## 📋 Requisitos Previos
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Antes de comenzar, necesitas tener instalado en tu computador:
 
-## Expanding the ESLint configuration
+1. **Node.js**: Este es un programa que nos permite ejecutar JavaScript en tu computador
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+   - Ve a [https://nodejs.org/](https://nodejs.org/)
+   - Descarga la versión "LTS" (Long Term Support)
+   - Instala el programa siguiendo las instrucciones en pantalla
+
+2. **Git**: Este programa nos ayuda a descargar el código
+   - Ve a [https://git-scm.com/downloads](https://git-scm.com/downloads)
+   - Descarga la versión para tu sistema operativo
+   - Instala el programa siguiendo las instrucciones en pantalla
+
+## 🚀 Pasos para Iniciar el Proyecto
+
+1. **Descargar el código**
+
+   - Abre la Terminal (en Mac) o el Símbolo del Sistema (en Windows)
+   - Escribe el siguiente comando y presiona Enter:
+
+   ```bash
+   git clone https://github.com/tu-usuario/wheels-uniandes.git
+   ```
+
+   - Entra a la carpeta del proyecto:
+
+   ```bash
+   cd wheels-uniandes
+   ```
+
+2. **Instalar las dependencias**
+
+   - En la misma Terminal, escribe:
+
+   ```bash
+   npm install
+   ```
+
+   - Espera a que termine la instalación (puede tomar unos minutos)
+
+3. **Iniciar el proyecto**
+   - Escribe el siguiente comando:
+   ```bash
+   npm run dev
+   ```
+   - Verás un mensaje que dice algo como "Local: http://localhost:5173/"
+   - Abre tu navegador web (Chrome, Firefox, etc.)
+   - Copia y pega la dirección que aparece en la Terminal
+
+## 🆘 Solución de Problemas Comunes
+
+Si encuentras algún error, aquí hay algunas soluciones:
+
+1. **Error "command not found"**
+
+   - Asegúrate de haber instalado Node.js correctamente
+   - Cierra y vuelve a abrir la Terminal
+
+2. **Error al instalar dependencias**
+
+   - Asegúrate de tener una conexión a internet estable
+   - Intenta ejecutar `npm install` nuevamente
+
+3. **La página no se abre en el navegador**
+   - Verifica que el comando `npm run dev` esté ejecutándose
+   - Asegúrate de copiar correctamente la dirección en el navegador
+
+

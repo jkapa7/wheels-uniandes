@@ -1,6 +1,6 @@
 # Wheels Uniandes 🚲
 
-¡Bienvenido a Wheels Uniandes! 
+¡Bienvenido a Wheels Uniandes!
 
 ## 📋 Requisitos Previos
 
@@ -25,7 +25,7 @@ Antes de comenzar, necesitas tener instalado en tu computador:
    - Escribe el siguiente comando y presiona Enter:
 
    ```bash
-   git clone https://github.com/tu-usuario/wheels-uniandes.git
+   git clone https://github.com/jkapa7/wheels-uniandes.git
    ```
 
    - Entra a la carpeta del proyecto:
@@ -71,4 +71,4 @@ Si encuentras algún error, aquí hay algunas soluciones:
    - Verifica que el comando `npm run dev` esté ejecutándose
    - Asegúrate de copiar correctamente la dirección en el navegador
 
-
+##ESTO ES UNA PRUEBA PARA QUE VEAN COMO SE SUBEN LOS CAMBIOS

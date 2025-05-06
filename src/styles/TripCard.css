@@ -1,0 +1,58 @@
+.trip-card {
+  background: var(--card-bg);
+  border-radius: 1.1rem;
+  box-shadow: 0 2px 8px rgba(58, 92, 168, 0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.3rem 2rem;
+  font-size: 1.1rem;
+}
+
+.trip-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.trip-title {
+  font-weight: 700;
+  color: var(--text-dark);
+  font-size: 1.25rem;
+}
+
+.trip-route {
+  color: var(--text-dark);
+  opacity: 0.7;
+  font-size: 1rem;
+}
+
+.trip-details {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.trip-icon {
+  font-size: 1.3rem;
+}
+
+.trip-seats {
+  color: var(--text-dark);
+  font-size: 1.05rem;
+}
+
+.trip-reserve {
+  background: var(--button-green);
+  color: var(--white);
+  border: none;
+  border-radius: 0.6rem;
+  padding: 0.6rem 1.3rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.trip-reserve:hover {
+  background: var(--button-green-hover);
+}

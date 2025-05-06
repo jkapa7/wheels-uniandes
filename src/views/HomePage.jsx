@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import "../styles/HomePage.css";
+import TripCard from "../components/TripCard";
 
 function HomePage() {
   const navigate = useNavigate();
@@ -18,12 +19,11 @@ function HomePage() {
         </button>
       </header>
       <main className="home-content">
-        <section className="welcome-section">
-          <h2>¡Hola de nuevo!</h2>
-          <p>
-            Esta es tu página principal. Aquí puedes agregar el contenido que
-            desees mostrar.
-          </p>
+        <section className="trips-list">
+          <TripCard nombre="Laura Martínez" />
+          <TripCard nombre="Andrés Gómez" />
+          <TripCard nombre="Maríana López" />
+          <TripCard nombre="Diego Ramírez" />
         </section>
       </main>
     </div>

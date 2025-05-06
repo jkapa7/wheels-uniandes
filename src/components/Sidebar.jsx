@@ -23,13 +23,13 @@ const Sidebar = () => {
         <button onClick={handleHomeClick} className="sidebar-button">
           <span>🏠</span> Inicio
         </button>
-        <Link to="/configuracion" className="sidebar-button">
+        <Link to="/settings" className="sidebar-button">
           <span>⚙️</span> Configuración
         </Link>
-        <Link to="/mis-viajes" className="sidebar-button">
+        <Link to="/my-trips" className="sidebar-button">
           <span>🚗</span> Mis Viajes
         </Link>
-        <Link to="/solicitudes" className="sidebar-button">
+        <Link to="/requests" className="sidebar-button">
           <span>📋</span> Solicitudes
         </Link>
       </div>

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import VehicleForm from "../components/VehicleForm";
 import CreateTripModal from "../components/CreateTripModal";
-import "../styles/Configuracion.css";
+import "../styles/Settings.css";
 
 const Configuracion = () => {
   const [showVehicleForm, setShowVehicleForm] = useState(false);

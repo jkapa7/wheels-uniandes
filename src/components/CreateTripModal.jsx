@@ -3,14 +3,14 @@ import "../styles/CreateTripModal.css";
 
 const CreateTripModal = ({ onClose, onSubmit }) => {
   const [formData, setFormData] = useState({
-    origen: "",
-    destino: "",
-    hora: "",
-    cupos: "",
-    descripcion: "",
+    origin: "",
+    destination: "",
+    time: "",
+    seats: "",
+    description: "",
   });
 
-  const localidades = [
+  const locations = [
     "Ciudad Universitaria",
     "Centro",
     "Norte",
@@ -40,15 +40,15 @@ const CreateTripModal = ({ onClose, onSubmit }) => {
           <div className="form-group">
             <label>Origen:</label>
             <select
-              name="origen"
-              value={formData.origen}
+              name="origin"
+              value={formData.origin}
               onChange={handleChange}
               required
             >
               <option value="">Seleccione una localidad</option>
-              {localidades.map((localidad) => (
-                <option key={localidad} value={localidad}>
-                  {localidad}
+              {locations.map((location) => (
+                <option key={location} value={location}>
+                  {location}
                 </option>
               ))}
             </select>
@@ -57,15 +57,15 @@ const CreateTripModal = ({ onClose, onSubmit }) => {
           <div className="form-group">
             <label>Destino:</label>
             <select
-              name="destino"
-              value={formData.destino}
+              name="destination"
+              value={formData.destination}
               onChange={handleChange}
               required
             >
               <option value="">Seleccione una localidad</option>
-              {localidades.map((localidad) => (
-                <option key={localidad} value={localidad}>
-                  {localidad}
+              {locations.map((location) => (
+                <option key={location} value={location}>
+                  {location}
                 </option>
               ))}
             </select>
@@ -75,8 +75,8 @@ const CreateTripModal = ({ onClose, onSubmit }) => {
             <label>Hora:</label>
             <input
               type="time"
-              name="hora"
-              value={formData.hora}
+              name="time"
+              value={formData.time}
               onChange={handleChange}
               required
             />
@@ -86,8 +86,8 @@ const CreateTripModal = ({ onClose, onSubmit }) => {
             <label>Cupos disponibles:</label>
             <input
               type="number"
-              name="cupos"
-              value={formData.cupos}
+              name="seats"
+              value={formData.seats}
               onChange={handleChange}
               min="1"
               required
@@ -97,8 +97,8 @@ const CreateTripModal = ({ onClose, onSubmit }) => {
           <div className="form-group">
             <label>Descripción:</label>
             <textarea
-              name="descripcion"
-              value={formData.descripcion}
+              name="description"
+              value={formData.description}
               onChange={handleChange}
               required
             />

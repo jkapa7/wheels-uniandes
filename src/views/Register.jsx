@@ -58,8 +58,6 @@ function Register() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validateForm()) {
-      // Aquí iría la lógica de registro
-      console.log("Registro exitoso:", formData);
       navigate("/login");
     }
   };

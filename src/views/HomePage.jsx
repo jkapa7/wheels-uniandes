@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/HomePage.css";
 import TripCard from "../components/TripCard";
@@ -106,28 +106,30 @@ function HomePage() {
   return (
     <div className="home-container">
       <header className="home-header">
-        <h1>Bienvenido a la Página Principal</h1>
+        <h1>Viajes Disponibles</h1>
       </header>
       <main className="home-content">
         <FilterBar onFilterChange={handleFilterChange} />
         <section className="trips-list">
-          {filteredTrips.map((trip, idx) => (
-            <TripCard
-              key={idx}
-              nombre={trip.nombre}
-              origen={trip.origen}
-              destino={trip.destino}
-              cupos={trip.cupos}
-              conductor={trip.conductor}
-              generoConductor={trip.generoConductor}
-            />
-          ))}
+          {filteredTrips.length > 0 ? (
+            filteredTrips.map((trip, idx) => (
+              <TripCard
+                key={idx}
+                nombre={trip.nombre}
+                origen={trip.origen}
+                destino={trip.destino}
+                cupos={trip.cupos}
+                conductor={trip.conductor}
+                generoConductor={trip.generoConductor}
+              />
+            ))
+          ) : (
+            <div className="no-trips-message">
+              No hay viajes disponibles con los filtros seleccionados
+            </div>
+          )}
         </section>
       </main>
-      <button className="logout-logo-button" onClick={handleLogout}>
-        <img src={goatLogo} alt="Cerrar sesión" className="goat-logo" />
-        <span className="logout-text">Cerrar Sesión</span>
-      </button>
     </div>
   );
 }

@@ -1,0 +1,13 @@
+.configuracion-container {
+  margin-left: 250px; /* Para compensar el ancho del sidebar */
+  padding: 20px;
+  min-height: 100vh;
+  background-color: #f5f6fa;
+}
+
+.configuracion-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}

@@ -9,6 +9,8 @@ import Login from "./views/Login";
 import HomePage from "./views/HomePage";
 import Register from "./views/Register";
 import Configuracion from "./views/Configuracion";
+import MisViajes from "./views/MisViajes";
+import Solicitudes from "./views/Solicitudes";
 import Sidebar from "./components/Sidebar";
 import "./App.css";
 
@@ -16,7 +18,12 @@ function AppContent() {
   const location = useLocation();
 
   const shouldShowSidebar = (path) => {
-    return path === "/home" || path === "/configuracion";
+    return (
+      path === "/home" ||
+      path === "/configuracion" ||
+      path === "/mis-viajes" ||
+      path === "/solicitudes"
+    );
   };
 
   return (
@@ -27,6 +34,8 @@ function AppContent() {
         <Route path="/register" element={<Register />} />
         <Route path="/home" element={<HomePage />} />
         <Route path="/configuracion" element={<Configuracion />} />
+        <Route path="/mis-viajes" element={<MisViajes />} />
+        <Route path="/solicitudes" element={<Solicitudes />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </>

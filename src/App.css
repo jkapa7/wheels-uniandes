@@ -1,10 +1,17 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+:root {
+  --primary-blue: #3a5ca8;
+  --secondary-blue: #5b7ecb;
+  --background-blue: #e3eafc;
+  --card-bg: #f7faff;
+  --text-dark: #22325a;
+  --button-green: #4caf50;
+  --button-green-hover: #388e3c;
+  --white: #fff;
 }
 
 body {
+  background: var(--background-blue);
+  color: var(--text-dark);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
@@ -21,9 +28,10 @@ input {
 }
 
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
   text-align: center;
 }
 

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import "../styles/Register.css";
 import "../styles/common.css";
-import goatLogo from "../assets/image.png";
+import loginRegisterImage from "../assets/loginRegisterImage.png";
 
 function Register() {
   const [formData, setFormData] = useState({
@@ -33,6 +33,8 @@ function Register() {
       newErrors.email = "El correo electrónico es requerido";
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
       newErrors.email = "El correo electrónico no es válido";
+    } else if (!formData.email.endsWith("@uniandes.edu.co")) {
+      newErrors.email = "El correo electrónico debe ser de Uniandes";
     }
 
     if (!formData.password) {
@@ -66,104 +68,102 @@ function Register() {
 
   return (
     <div className="page-container">
-      <div className="register-container">
-        <div className="register-header">
+      <div className="auth-flex-container">
+        <div className="auth-image-container">
           <img
-            src={goatLogo}
-            alt="Logo WheelsAndes"
-            className="goat-logo"
-            style={{ width: "70px", marginBottom: "1rem" }}
+            src={loginRegisterImage}
+            alt="Login Register"
+            className="auth-side-image"
           />
-          <h1 className="app-title">WheelsAndes</h1>
-          <p className="app-subtitle">Comparte viajes, ahorra dinero</p>
         </div>
-        <div className="register-box">
-          <h2>Registro</h2>
-          <form onSubmit={handleSubmit}>
-            <div className="form-group">
-              <label htmlFor="nombre">Nombre Completo</label>
-              <input
-                type="text"
-                id="nombre"
-                name="nombre"
-                value={formData.nombre}
-                onChange={handleChange}
-                placeholder="Juan Pérez"
-              />
-              {errors.nombre && (
-                <div className="error-message">{errors.nombre}</div>
-              )}
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="telefono">Número de Teléfono</label>
-              <input
-                type="tel"
-                id="telefono"
-                name="telefono"
-                value={formData.telefono}
-                onChange={handleChange}
-                placeholder="3001234567"
-              />
-              {errors.telefono && (
-                <div className="error-message">{errors.telefono}</div>
-              )}
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="email">Correo Electrónico</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                placeholder="ejemplo@uniandes.edu.co"
-              />
-              {errors.email && (
-                <div className="error-message">{errors.email}</div>
-              )}
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="password">Contraseña</label>
-              <input
-                type="password"
-                id="password"
-                name="password"
-                value={formData.password}
-                onChange={handleChange}
-                placeholder="••••••••"
-              />
-              {errors.password && (
-                <div className="error-message">{errors.password}</div>
-              )}
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="confirmPassword">Confirmar Contraseña</label>
-              <input
-                type="password"
-                id="confirmPassword"
-                name="confirmPassword"
-                value={formData.confirmPassword}
-                onChange={handleChange}
-                placeholder="••••••••"
-              />
-              {errors.confirmPassword && (
-                <div className="error-message">{errors.confirmPassword}</div>
-              )}
-            </div>
-
-            <button type="submit" className="register-button">
-              Registrarse
-            </button>
-            <div className="login-link">
-              <p>
-                ¿Ya tienes una cuenta? <Link to="/">Inicia sesión aquí</Link>
-              </p>
-            </div>
-          </form>
+        <div className="register-container">
+          <div className="register-header">
+            <h1 className="app-title">WheelsAndes</h1>
+            <p className="app-subtitle">Comparte viajes, ahorra dinero</p>
+          </div>
+          <div className="register-box">
+            <h2>Registro</h2>
+            <form onSubmit={handleSubmit}>
+              <div className="form-group">
+                <label htmlFor="nombre">Nombre Completo</label>
+                <input
+                  type="text"
+                  id="nombre"
+                  name="nombre"
+                  value={formData.nombre}
+                  onChange={handleChange}
+                  placeholder="Juan Pérez"
+                />
+                {errors.nombre && (
+                  <div className="error-message">{errors.nombre}</div>
+                )}
+              </div>
+              <div className="form-group">
+                <label htmlFor="telefono">Número de Teléfono</label>
+                <input
+                  type="tel"
+                  id="telefono"
+                  name="telefono"
+                  value={formData.telefono}
+                  onChange={handleChange}
+                  placeholder="3001234567"
+                />
+                {errors.telefono && (
+                  <div className="error-message">{errors.telefono}</div>
+                )}
+              </div>
+              <div className="form-group">
+                <label htmlFor="email">Correo Electrónico</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  placeholder="ejemplo@uniandes.edu.co"
+                />
+                {errors.email && (
+                  <div className="error-message">{errors.email}</div>
+                )}
+              </div>
+              <div className="form-group">
+                <label htmlFor="password">Contraseña</label>
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  value={formData.password}
+                  onChange={handleChange}
+                  placeholder="••••••••"
+                />
+                {errors.password && (
+                  <div className="error-message">{errors.password}</div>
+                )}
+              </div>
+              <div className="form-group">
+                <label htmlFor="confirmPassword">Confirmar Contraseña</label>
+                <input
+                  type="password"
+                  id="confirmPassword"
+                  name="confirmPassword"
+                  value={formData.confirmPassword}
+                  onChange={handleChange}
+                  placeholder="••••••••"
+                />
+                {errors.confirmPassword && (
+                  <div className="error-message">{errors.confirmPassword}</div>
+                )}
+              </div>
+              <button type="submit" className="register-button">
+                Registrarse
+              </button>
+              <div className="login-link">
+                <p>
+                  ¿Ya tienes una cuenta? <Link to="/">Inicia sesión aquí</Link>
+                </p>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>

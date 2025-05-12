@@ -46,12 +46,12 @@ function TripCard({
   return (
     <>
       <div className="trip-card">
-        <div className="trip-info">
+        <div className="trip-main-info">
           <div className="trip-header">
             <div className="trip-title">{name}</div>
             <div className="trip-price">${price}</div>
           </div>
-          <div className="trip-route">
+          <div className="trip-route-time">
             <div className="route-points">
               <span className="route-origin">{origin}</span>
               <span className="route-arrow">→</span>
@@ -75,7 +75,7 @@ function TripCard({
             </div>
           </div>
         </div>
-        <div className="trip-actions">
+        <div className="trip-side-actions">
           <div className="trip-seats">
             <span className="seats-icon">💺</span>
             <span>{seats} cupos</span>

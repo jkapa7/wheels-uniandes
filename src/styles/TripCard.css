@@ -5,13 +5,14 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
+  align-items: stretch;
   padding: 1.5rem 2.2rem;
   font-size: 1.1rem;
   width: 800px;
-  min-height: 120px;
+  min-height: 140px;
   transition: all 0.3s ease;
   margin-bottom: 1rem;
+  gap: 2.5rem;
 }
 
 .trip-card:hover {
@@ -19,18 +20,19 @@
   transform: translateY(-2px);
 }
 
-.trip-info {
+.trip-main-info {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  flex: 1;
-  margin-right: 2rem;
+  justify-content: center;
+  gap: 1.1rem;
+  flex: 2;
 }
 
 .trip-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 0.2rem;
 }
 
 .trip-title {
@@ -45,11 +47,12 @@
   font-size: 1.2rem;
 }
 
-.trip-route {
+.trip-route-time {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 1rem;
+  gap: 2.5rem;
+  margin-bottom: 0.2rem;
 }
 
 .route-points {
@@ -95,8 +98,9 @@
 
 .trip-details-info {
   display: flex;
-  gap: 2rem;
+  gap: 2.5rem;
   align-items: center;
+  margin-top: 0.2rem;
 }
 
 .trip-driver,
@@ -115,11 +119,13 @@
   font-size: 1.2rem;
 }
 
-.trip-actions {
+.trip-side-actions {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  gap: 1rem;
+  justify-content: center;
+  gap: 1.5rem;
+  min-width: 140px;
 }
 
 .trip-seats {
@@ -128,6 +134,9 @@
   gap: 0.5rem;
   color: var(--text-dark);
   font-size: 1.05rem;
+  background: rgba(58, 92, 168, 0.07);
+  padding: 0.5rem 1rem;
+  border-radius: 0.6rem;
 }
 
 .trip-reserve {
@@ -140,6 +149,8 @@
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
+  width: 100%;
+  min-width: 120px;
 }
 
 .trip-reserve:hover {
@@ -157,30 +168,31 @@
     flex-direction: column;
     align-items: flex-start;
     padding: 1.2rem;
+    gap: 1.2rem;
   }
-
-  .trip-info {
+  .trip-main-info {
     margin-right: 0;
     margin-bottom: 1rem;
     width: 100%;
   }
-
-  .trip-route {
+  .trip-route-time {
     flex-direction: column;
     align-items: flex-start;
     gap: 0.5rem;
   }
-
   .trip-details-info {
     flex-direction: column;
     align-items: flex-start;
     gap: 0.5rem;
   }
-
-  .trip-actions {
+  .trip-side-actions {
     width: 100%;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    min-width: unset;
+  }
+  .trip-reserve {
+    min-width: 100px;
   }
 }

@@ -9,36 +9,56 @@
   padding: 1.5rem 2.2rem;
   font-size: 1.1rem;
   width: 800px;
-  min-height: 100px;
-  transition: box-shadow 0.2s;
+  min-height: 120px;
+  transition: all 0.3s ease;
+  margin-bottom: 1rem;
 }
 
 .trip-card:hover {
   box-shadow: 0 4px 16px rgba(58, 92, 168, 0.16);
+  transform: translateY(-2px);
 }
 
 .trip-info {
-  display: grid;
-  grid-template-rows: auto auto auto;
-  gap: 0.5rem;
-  margin-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex: 1;
   margin-right: 2rem;
+}
+
+.trip-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .trip-title {
   font-weight: 700;
   color: var(--text-dark);
   font-size: 1.25rem;
-  margin-bottom: 0.2rem;
+}
+
+.trip-price {
+  font-weight: 600;
+  color: var(--button-green);
+  font-size: 1.2rem;
 }
 
 .trip-route {
-  color: var(--text-dark);
-  opacity: 0.7;
-  font-size: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.route-points {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  color: var(--text-dark);
+  opacity: 0.8;
+  font-size: 1rem;
 }
 
 .route-arrow {
@@ -46,7 +66,41 @@
   font-weight: bold;
 }
 
-.trip-driver {
+.trip-time {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-dark);
+  opacity: 0.8;
+  font-size: 0.9rem;
+  background: rgba(58, 92, 168, 0.1);
+  padding: 0.4rem 0.8rem;
+  border-radius: 0.6rem;
+  transition: all 0.3s ease;
+}
+
+.trip-time:hover {
+  background: rgba(58, 92, 168, 0.15);
+  transform: translateY(-1px);
+}
+
+.time-icon {
+  font-size: 1.1rem;
+}
+
+.time-value {
+  font-weight: 600;
+  color: var(--primary-blue);
+}
+
+.trip-details-info {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.trip-driver,
+.vehicle-info {
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -55,22 +109,23 @@
   opacity: 0.8;
 }
 
-.driver-icon {
+.driver-icon,
+.vehicle-icon,
+.seats-icon {
   font-size: 1.2rem;
 }
 
-.trip-details {
+.trip-actions {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-end;
   gap: 1rem;
-  width: 100%;
-}
-
-.trip-icon {
-  font-size: 1.3rem;
 }
 
 .trip-seats {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   color: var(--text-dark);
   font-size: 1.05rem;
 }
@@ -80,16 +135,20 @@
   color: var(--white);
   border: none;
   border-radius: 0.6rem;
-  padding: 0.6rem 1.3rem;
+  padding: 0.8rem 1.5rem;
   font-size: 1.05rem;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.2s;
-  margin-left: auto;
+  transition: all 0.3s ease;
 }
 
 .trip-reserve:hover {
   background: var(--button-green-hover);
+  transform: translateY(-1px);
+}
+
+.trip-reserve:active {
+  transform: translateY(0);
 }
 
 @media (max-width: 850px) {
@@ -97,15 +156,31 @@
     width: 100%;
     flex-direction: column;
     align-items: flex-start;
+    padding: 1.2rem;
   }
 
   .trip-info {
     margin-right: 0;
     margin-bottom: 1rem;
+    width: 100%;
   }
 
-  .trip-details {
+  .trip-route {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .trip-details-info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .trip-actions {
     width: 100%;
+    flex-direction: row;
     justify-content: space-between;
+    align-items: center;
   }
 }

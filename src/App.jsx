@@ -10,9 +10,10 @@ import HomePage from "./views/HomePage";
 import Register from "./views/Register";
 import Settings from "./views/Settings";
 import MyTrips from "./views/MyTrips";
-import Requests from "./views/Requests";
+import VehicleRegistration from "./views/VehicleRegistration";
 import Sidebar from "./components/Sidebar";
 import "./App.css";
+import "./styles/Layout.css";
 
 function AppContent() {
   const location = useLocation();
@@ -22,23 +23,41 @@ function AppContent() {
       path === "/home" ||
       path === "/settings" ||
       path === "/my-trips" ||
-      path === "/requests"
+      path === "/vehicle-registration"
     );
   };
 
-  return (
-    <>
-      {shouldShowSidebar(location.pathname) && <Sidebar />}
+  const isAuthPage = (path) => {
+    return path === "/" || path === "/register";
+  };
+
+  if (isAuthPage(location.pathname)) {
+    return (
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/home" element={<HomePage />} />
-        <Route path="/settings" element={<Settings />} />
-        <Route path="/my-trips" element={<MyTrips />} />
-        <Route path="/requests" element={<Requests />} />
-        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
-    </>
+    );
+  }
+
+  return (
+    <div className="main-layout">
+      <Sidebar />
+      <main className="main-content">
+        <div className="content-container">
+          <Routes>
+            <Route path="/home" element={<HomePage />} />
+            <Route path="/settings" element={<Settings />} />
+            <Route path="/my-trips" element={<MyTrips />} />
+            <Route
+              path="/vehicle-registration"
+              element={<VehicleRegistration />}
+            />
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </div>
+      </main>
+    </div>
   );
 }
 

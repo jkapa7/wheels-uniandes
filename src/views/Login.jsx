@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import "../styles/Login.css";
+import goatLogo from "../assets/image.png";
 
 function Login() {
   const [credentials, setCredentials] = useState({
@@ -24,6 +25,16 @@ function Login() {
 
   return (
     <div className="login-container">
+      <div className="login-header">
+        <img
+          src={goatLogo}
+          alt="Logo WheelsAndes"
+          className="goat-logo"
+          style={{ width: "70px", marginBottom: "1rem" }}
+        />
+        <h1 className="app-title">WheelsAndes</h1>
+        <p className="app-subtitle">Comparte viajes, ahorra dinero</p>
+      </div>
       <div className="login-box">
         <h2>Iniciar Sesión</h2>
         <form onSubmit={handleSubmit}>
@@ -36,6 +47,7 @@ function Login() {
               value={credentials.email}
               onChange={handleChange}
               required
+              placeholder="ejemplo@uniandes.edu.co"
             />
           </div>
           <div className="form-group">
@@ -47,6 +59,7 @@ function Login() {
               value={credentials.password}
               onChange={handleChange}
               required
+              placeholder="••••••••"
             />
           </div>
           <button type="submit" className="login-button">

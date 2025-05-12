@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import "../styles/Register.css";
+import goatLogo from "../assets/image.png";
 
 function Register() {
   const [formData, setFormData] = useState({
@@ -64,6 +65,16 @@ function Register() {
 
   return (
     <div className="register-container">
+      <div className="register-header">
+        <img
+          src={goatLogo}
+          alt="Logo WheelsAndes"
+          className="goat-logo"
+          style={{ width: "70px", marginBottom: "1rem" }}
+        />
+        <h1 className="app-title">WheelsAndes</h1>
+        <p className="app-subtitle">Comparte viajes, ahorra dinero</p>
+      </div>
       <div className="register-box">
         <h2>Registro</h2>
         <form onSubmit={handleSubmit}>
@@ -75,6 +86,7 @@ function Register() {
               name="nombre"
               value={formData.nombre}
               onChange={handleChange}
+              placeholder="Juan Pérez"
             />
             {errors.nombre && (
               <div className="error-message">{errors.nombre}</div>
@@ -89,6 +101,7 @@ function Register() {
               name="telefono"
               value={formData.telefono}
               onChange={handleChange}
+              placeholder="3001234567"
             />
             {errors.telefono && (
               <div className="error-message">{errors.telefono}</div>
@@ -103,6 +116,7 @@ function Register() {
               name="email"
               value={formData.email}
               onChange={handleChange}
+              placeholder="ejemplo@uniandes.edu.co"
             />
             {errors.email && (
               <div className="error-message">{errors.email}</div>
@@ -117,6 +131,7 @@ function Register() {
               name="password"
               value={formData.password}
               onChange={handleChange}
+              placeholder="••••••••"
             />
             {errors.password && (
               <div className="error-message">{errors.password}</div>
@@ -131,6 +146,7 @@ function Register() {
               name="confirmPassword"
               value={formData.confirmPassword}
               onChange={handleChange}
+              placeholder="••••••••"
             />
             {errors.confirmPassword && (
               <div className="error-message">{errors.confirmPassword}</div>

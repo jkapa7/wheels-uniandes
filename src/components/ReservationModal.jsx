@@ -30,10 +30,6 @@ function ReservationModal({ trip, onClose, onConfirm }) {
                 <span className="detail-label">Cupos disponibles:</span>
                 <span className="detail-value">{trip.seats}</span>
               </div>
-              <div className="detail-item">
-                <span className="detail-label">Precio:</span>
-                <span className="detail-value price">${trip.price}</span>
-              </div>
             </div>
           </div>
           <div className="detail-section">

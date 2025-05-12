@@ -16,7 +16,6 @@ const Configuracion = () => {
     fecha: "",
     hora: "",
     asientos: "",
-    precio: "",
     descripcion: "",
     vehiculo: "",
   });
@@ -118,7 +117,6 @@ const Configuracion = () => {
       fecha: "",
       hora: "",
       asientos: "",
-      precio: "",
       descripcion: "",
       vehiculo: "",
     });
@@ -436,21 +434,6 @@ const Configuracion = () => {
                   Máximo: {vehicleData.capacidad} pasajeros
                 </small>
               )}
-            </div>
-
-            <div className="form-group active">
-              <label htmlFor="precio">Precio por Asiento</label>
-              <input
-                type="number"
-                id="precio"
-                name="precio"
-                value={tripData.precio}
-                onChange={handleTripChange}
-                className="form-control"
-                required
-                min="0"
-                step="1000"
-              />
             </div>
           </div>
 

@@ -49,7 +49,6 @@ function TripCard({
         <div className="trip-main-info">
           <div className="trip-header">
             <div className="trip-title">{name}</div>
-            <div className="trip-price">${price}</div>
           </div>
           <div className="trip-route-time">
             <div className="route-points">

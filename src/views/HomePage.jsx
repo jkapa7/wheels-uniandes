@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "../styles/HomePage.css";
 import TripCard from "../components/TripCard";
 import FilterBar from "../components/FilterBar";
-import goatLogo from "../assets/react.svg";
+import goatLogo from "../assets/image.png";
 
 const mockTrips = [
   {
@@ -13,6 +13,9 @@ const mockTrips = [
     seats: 2,
     driver: "Laura Martínez",
     driverGender: "female",
+    time: "08:30",
+    price: "15.000",
+    vehicleInfo: "Toyota Corolla 2022",
   },
   {
     name: "Andrés Gómez",
@@ -21,6 +24,9 @@ const mockTrips = [
     seats: 1,
     driver: "Andrés Gómez",
     driverGender: "male",
+    time: "09:15",
+    price: "12.000",
+    vehicleInfo: "Renault Logan 2021",
   },
   {
     name: "Maríana López",
@@ -29,6 +35,9 @@ const mockTrips = [
     seats: 3,
     driver: "Maríana López",
     driverGender: "female",
+    time: "10:00",
+    price: "18.000",
+    vehicleInfo: "Chevrolet Onix 2023",
   },
   {
     name: "Diego Ramírez",
@@ -37,6 +46,9 @@ const mockTrips = [
     seats: 2,
     driver: "Diego Ramírez",
     driverGender: "male",
+    time: "11:45",
+    price: "14.000",
+    vehicleInfo: "Volkswagen Polo 2022",
   },
   {
     name: "Camila Torres",
@@ -45,6 +57,9 @@ const mockTrips = [
     seats: 1,
     driver: "Camila Torres",
     driverGender: "female",
+    time: "13:30",
+    price: "16.000",
+    vehicleInfo: "Kia Rio 2023",
   },
   {
     name: "Juan Pérez",
@@ -53,6 +68,9 @@ const mockTrips = [
     seats: 2,
     driver: "Juan Pérez",
     driverGender: "male",
+    time: "14:15",
+    price: "13.000",
+    vehicleInfo: "Hyundai Accent 2021",
   },
   {
     name: "Sofía Herrera",
@@ -61,6 +79,9 @@ const mockTrips = [
     seats: 2,
     driver: "Sofía Herrera",
     driverGender: "female",
+    time: "15:00",
+    price: "15.000",
+    vehicleInfo: "Mazda 2 2022",
   },
   {
     name: "Carlos Ruiz",
@@ -69,6 +90,9 @@ const mockTrips = [
     seats: 1,
     driver: "Carlos Ruiz",
     driverGender: "male",
+    time: "16:30",
+    price: "12.000",
+    vehicleInfo: "Suzuki Swift 2023",
   },
 ];
 
@@ -101,6 +125,10 @@ function HomePage() {
 
   return (
     <div className="home-container">
+      <header className="home-header">
+        <img src={goatLogo} alt="Logo WheelsAndes" className="goat-logo" />
+        <h1 className="home-title">Viajes Disponibles</h1>
+      </header>
       <main className="home-content">
         <FilterBar onFilterChange={handleFilterChange} />
         <section className="trips-list">
@@ -114,6 +142,9 @@ function HomePage() {
                 seats={trip.seats}
                 driver={trip.driver}
                 driverGender={trip.driverGender}
+                time={trip.time}
+                price={trip.price}
+                vehicleInfo={trip.vehicleInfo}
               />
             ))
           ) : (

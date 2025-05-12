@@ -2,6 +2,29 @@ import React from "react";
 import "../styles/FilterBar.css";
 
 const FilterBar = ({ onFilterChange }) => {
+  const bogotaLocalidades = [
+    "Usaquén",
+    "Chapinero",
+    "Santa Fe",
+    "San Cristóbal",
+    "Usme",
+    "Tunjuelito",
+    "Bosa",
+    "Kennedy",
+    "Fontibón",
+    "Engativá",
+    "Suba",
+    "Barrios Unidos",
+    "Teusaquillo",
+    "Los Mártires",
+    "Antonio Nariño",
+    "Puente Aranda",
+    "La Candelaria",
+    "Rafael Uribe Uribe",
+    "Ciudad Bolívar",
+    "Sumapaz",
+  ];
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     onFilterChange(name, value);
@@ -25,26 +48,36 @@ const FilterBar = ({ onFilterChange }) => {
 
       <div className="filter-group">
         <label htmlFor="origin">Origen:</label>
-        <input
-          type="text"
+        <select
           id="origin"
           name="origin"
-          placeholder="Ingrese origen"
           onChange={handleChange}
-          className="filter-input"
-        />
+          className="filter-select"
+        >
+          <option value="">Todas las localidades</option>
+          {bogotaLocalidades.map((localidad) => (
+            <option key={localidad} value={localidad}>
+              {localidad}
+            </option>
+          ))}
+        </select>
       </div>
 
       <div className="filter-group">
         <label htmlFor="destination">Destino:</label>
-        <input
-          type="text"
+        <select
           id="destination"
           name="destination"
-          placeholder="Ingrese destino"
           onChange={handleChange}
-          className="filter-input"
-        />
+          className="filter-select"
+        >
+          <option value="">Todas las localidades</option>
+          {bogotaLocalidades.map((localidad) => (
+            <option key={localidad} value={localidad}>
+              {localidad}
+            </option>
+          ))}
+        </select>
       </div>
     </div>
   );

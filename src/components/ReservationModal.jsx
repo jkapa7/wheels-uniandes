@@ -3,22 +3,48 @@ import "../styles/ReservationModal.css";
 
 function ReservationModal({ trip, onClose, onConfirm }) {
   return (
-    <div className="modal-overlay">
-      <div className="modal-content">
+    <div className="modal-overlay" onClick={onClose}>
+      <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         <h2>Confirmar Reserva</h2>
         <div className="trip-details">
-          <p>
-            <strong>Conductor:</strong> {trip.conductor}
-          </p>
-          <p>
-            <strong>Origen:</strong> {trip.origen}
-          </p>
-          <p>
-            <strong>Destino:</strong> {trip.destino}
-          </p>
-          <p>
-            <strong>Cupos disponibles:</strong> {trip.cupos}
-          </p>
+          <div className="detail-section">
+            <h3>Información del Viaje</h3>
+            <div className="detail-grid">
+              <div className="detail-item">
+                <span className="detail-label">Conductor:</span>
+                <span className="detail-value">{trip.driver}</span>
+              </div>
+              <div className="detail-item">
+                <span className="detail-label">Origen:</span>
+                <span className="detail-value">{trip.origin}</span>
+              </div>
+              <div className="detail-item">
+                <span className="detail-label">Destino:</span>
+                <span className="detail-value">{trip.destination}</span>
+              </div>
+              <div className="detail-item">
+                <span className="detail-label">Hora:</span>
+                <span className="detail-value">{trip.time}</span>
+              </div>
+              <div className="detail-item">
+                <span className="detail-label">Cupos disponibles:</span>
+                <span className="detail-value">{trip.seats}</span>
+              </div>
+              <div className="detail-item">
+                <span className="detail-label">Precio:</span>
+                <span className="detail-value price">${trip.price}</span>
+              </div>
+            </div>
+          </div>
+          <div className="detail-section">
+            <h3>Información del Vehículo</h3>
+            <div className="detail-grid">
+              <div className="detail-item">
+                <span className="detail-label">Vehículo:</span>
+                <span className="detail-value">{trip.vehicleInfo}</span>
+              </div>
+            </div>
+          </div>
         </div>
         <div className="modal-buttons">
           <button className="cancel-button" onClick={onClose}>

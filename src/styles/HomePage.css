@@ -1,10 +1,10 @@
 .home-container {
-  background: var(--background-blue);
   min-height: 100vh;
   width: 100%;
   display: grid;
   grid-template-rows: auto 1fr;
   position: relative;
+  background: #f5f6fa;
 }
 
 .home-header {
@@ -33,6 +33,14 @@
   align-items: start;
   justify-items: center;
   overflow-y: auto;
+}
+
+.home-title {
+  color: #333;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-align: center;
 }
 
 .welcome-section {
@@ -72,9 +80,12 @@
 }
 
 .goat-logo {
-  width: 2.2rem;
-  height: 2.2rem;
-  margin-right: 0.7rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-right: 1rem;
+  border-radius: 0.7rem;
+  background: white;
+  box-shadow: 0 2px 8px rgba(58, 92, 168, 0.08);
 }
 
 .logout-text {

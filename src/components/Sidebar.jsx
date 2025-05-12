@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import "../styles/Sidebar.css";
+import goatLogo from "../assets/image.png";
 
 const Sidebar = () => {
   const navigate = useNavigate();
@@ -19,6 +20,20 @@ const Sidebar = () => {
 
   return (
     <div className="sidebar">
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          marginBottom: 20,
+        }}
+      >
+        <img
+          src={goatLogo}
+          alt="Logo WheelsAndes"
+          style={{ width: 50, borderRadius: 12 }}
+        />
+      </div>
       <div className="sidebar-top">
         <button onClick={handleHomeClick} className="sidebar-button">
           <span>🏠</span> Inicio
@@ -28,9 +43,6 @@ const Sidebar = () => {
         </Link>
         <Link to="/my-trips" className="sidebar-button">
           <span>🚗</span> Mis Viajes
-        </Link>
-        <Link to="/requests" className="sidebar-button">
-          <span>📋</span> Solicitudes
         </Link>
       </div>
       <div className="sidebar-bottom">

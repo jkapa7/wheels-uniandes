@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import "../styles/MyTrips.css";
+import "../styles/common.css";
 
-const MisViajes = () => {
+const MyTrips = () => {
   const [activeTab, setActiveTab] = useState("futuros");
 
   // Datos de ejemplo para viajes
@@ -145,37 +146,38 @@ const MisViajes = () => {
   };
 
   return (
-    <div className="mis-viajes-container">
-      <h1>Mis Viajes</h1>
+    <div className="page-container">
+      <h1 className="page-title">Mis Viajes</h1>
+      <div className="mis-viajes-container">
+        <div className="tabs">
+          <button
+            className={`tab-button ${activeTab === "futuros" ? "active" : ""}`}
+            onClick={() => setActiveTab("futuros")}
+          >
+            Viajes Futuros
+          </button>
+          <button
+            className={`tab-button ${activeTab === "pasados" ? "active" : ""}`}
+            onClick={() => setActiveTab("pasados")}
+          >
+            Viajes Pasados
+          </button>
+          <button
+            className={`tab-button ${
+              activeTab === "solicitudes" ? "active" : ""
+            }`}
+            onClick={() => setActiveTab("solicitudes")}
+          >
+            Solicitudes
+          </button>
+        </div>
 
-      <div className="tabs">
-        <button
-          className={`tab-button ${activeTab === "futuros" ? "active" : ""}`}
-          onClick={() => setActiveTab("futuros")}
-        >
-          Viajes Futuros
-        </button>
-        <button
-          className={`tab-button ${activeTab === "pasados" ? "active" : ""}`}
-          onClick={() => setActiveTab("pasados")}
-        >
-          Viajes Pasados
-        </button>
-        <button
-          className={`tab-button ${
-            activeTab === "solicitudes" ? "active" : ""
-          }`}
-          onClick={() => setActiveTab("solicitudes")}
-        >
-          Solicitudes
-        </button>
-      </div>
-
-      <div className="viajes-list">
-        {activeTab === "solicitudes" ? renderSolicitudes() : renderViajes()}
+        <div className="viajes-list">
+          {activeTab === "solicitudes" ? renderSolicitudes() : renderViajes()}
+        </div>
       </div>
     </div>
   );
 };
 
-export default MisViajes;
+export default MyTrips;

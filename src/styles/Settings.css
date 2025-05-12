@@ -2,6 +2,8 @@
   padding: 2rem;
   max-width: 1200px;
   margin: 0 auto;
+  animation: fadeIn 0.5s ease-out;
+  background-color: var(--background-light);
 }
 
 .logo-container {
@@ -23,51 +25,179 @@
 
 .configuracion-title {
   color: var(--text-dark);
-  font-size: 2rem;
-  font-weight: 600;
-  margin-bottom: 2rem;
-  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 2.5rem;
+  text-align: left;
+  position: relative;
+  padding-bottom: 1rem;
+  animation: slideIn 0.5s ease-out;
+}
+
+.configuracion-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background: var(--primary-blue);
+  border-radius: 2px;
+  animation: expandWidth 0.5s ease-out 0.3s forwards;
+  width: 0;
 }
 
 .configuracion-section {
   background: var(--white);
-  border-radius: 1rem;
-  padding: 2rem;
+  border-radius: var(--border-radius);
+  padding: 2.5rem;
   margin-bottom: 2rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-  animation: fadeIn 0.5s ease-out;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition-base);
+  border: 1px solid var(--border-color);
+  animation: slideUp 0.5s ease-out;
+}
+
+.configuracion-section:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
 }
 
 .configuracion-section h2 {
   color: var(--text-dark);
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   font-weight: 600;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
 }
 
 .vehicle-info {
   background: var(--card-bg);
-  border-radius: 0.5rem;
-  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  padding: 2rem;
   margin-bottom: 1.5rem;
+  border: 1px solid var(--border-color);
+  transition: var(--transition-base);
+}
+
+.vehicle-info:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
 }
 
 .vehicle-info p {
-  margin-bottom: 0.75rem;
+  margin-bottom: 1rem;
   color: var(--text-dark);
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: var(--transition-base);
 }
 
-.vehicle-info p:last-child {
-  margin-bottom: 0;
+.vehicle-info p:hover {
+  transform: translateX(5px);
 }
 
 .vehicle-info strong {
   color: var(--primary-blue);
-  margin-right: 0.5rem;
+  font-weight: 600;
+  min-width: 120px;
 }
 
-/* Animaciones */
-@keyframes fadeIn {
+.btn {
+  padding: 0.875rem 1.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: var(--border-radius);
+  transition: var(--transition-base);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: -100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.btn:hover::after {
+  left: 100%;
+}
+
+.btn-primary {
+  background: var(--primary-blue);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: var(--primary-blue-dark);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background: var(--background-light);
+  color: var(--text-dark);
+  border: 1px solid var(--border-color);
+}
+
+.btn-secondary:hover {
+  background: var(--background-hover);
+  transform: translateY(-2px);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.75rem;
+  font-weight: 500;
+  color: var(--text-dark);
+  transition: var(--transition-base);
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  transition: var(--transition-base);
+  background: var(--white);
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--primary-blue);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+  transform: translateY(-1px);
+}
+
+.form-control::placeholder {
+  color: var(--text-light);
+}
+
+@keyframes slideUp {
   from {
     opacity: 0;
     transform: translateY(20px);
@@ -78,10 +208,9 @@
   }
 }
 
-/* Estilos responsivos */
 @media (max-width: 768px) {
   .configuracion-container {
-    padding: 1rem;
+    padding: 1.5rem;
   }
 
   .configuracion-section {
@@ -89,42 +218,15 @@
   }
 
   .configuracion-title {
-    font-size: 1.75rem;
+    font-size: 2rem;
   }
-}
 
-button {
-  padding: 10px 20px;
-  background-color: #4caf50;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 16px;
-}
+  .vehicle-info {
+    padding: 1.5rem;
+  }
 
-button:hover {
-  background-color: #45a049;
-}
-
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-}
-
-.modal-content {
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
-  width: 90%;
-  max-width: 500px;
-  position: relative;
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
 }

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/HomePage.css";
+import "../styles/common.css";
 import TripCard from "../components/TripCard";
 import FilterBar from "../components/FilterBar";
 import goatLogo from "../assets/image.png";
@@ -96,7 +97,7 @@ const mockTrips = [
   },
 ];
 
-function HomePage() {
+const HomePage = () => {
   const navigate = useNavigate();
   const [filters, setFilters] = useState({
     driverGender: "",
@@ -124,38 +125,37 @@ function HomePage() {
   });
 
   return (
-    <div className="home-container">
-      <header className="home-header">
-        <img src={goatLogo} alt="Logo WheelsAndes" className="goat-logo" />
-        <h1 className="home-title">Viajes Disponibles</h1>
-      </header>
-      <main className="home-content">
-        <FilterBar onFilterChange={handleFilterChange} />
-        <section className="trips-list">
-          {filteredTrips.length > 0 ? (
-            filteredTrips.map((trip, idx) => (
-              <TripCard
-                key={idx}
-                name={trip.name}
-                origin={trip.origin}
-                destination={trip.destination}
-                seats={trip.seats}
-                driver={trip.driver}
-                driverGender={trip.driverGender}
-                time={trip.time}
-                price={trip.price}
-                vehicleInfo={trip.vehicleInfo}
-              />
-            ))
-          ) : (
-            <div className="no-trips-message">
-              No hay viajes disponibles con los filtros seleccionados
-            </div>
-          )}
-        </section>
-      </main>
+    <div className="page-container">
+      <h1 className="page-title">Viajes Disponibles</h1>
+      <div className="home-container">
+        <main className="home-content">
+          <FilterBar onFilterChange={handleFilterChange} />
+          <section className="trips-list">
+            {filteredTrips.length > 0 ? (
+              filteredTrips.map((trip, idx) => (
+                <TripCard
+                  key={idx}
+                  name={trip.name}
+                  origin={trip.origin}
+                  destination={trip.destination}
+                  seats={trip.seats}
+                  driver={trip.driver}
+                  driverGender={trip.driverGender}
+                  time={trip.time}
+                  price={trip.price}
+                  vehicleInfo={trip.vehicleInfo}
+                />
+              ))
+            ) : (
+              <div className="no-trips-message">
+                No hay viajes disponibles con los filtros seleccionados
+              </div>
+            )}
+          </section>
+        </main>
+      </div>
     </div>
   );
-}
+};
 
 export default HomePage;

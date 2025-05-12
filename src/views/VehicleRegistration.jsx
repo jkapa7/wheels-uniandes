@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Modal from "../components/Modal";
 import "../styles/VehicleRegistration.css";
+import "../styles/common.css";
 
 const VehicleRegistration = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -58,11 +59,9 @@ const VehicleRegistration = () => {
   };
 
   return (
-    <div className="vehicle-registration-page">
+    <div className="page-container">
+      <h1 className="page-title">Registro de Vehículo</h1>
       <div className="vehicle-registration-header">
-        <h1 className="text-3xl font-bold mb-6 select-none">
-          Gestión de Vehículos
-        </h1>
         <button onClick={openModal} className="btn btn-primary hover-lift">
           Registrar Nuevo Vehículo
         </button>

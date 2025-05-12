@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Modal from "../components/Modal";
 import "../styles/Settings.css";
-import goatLogo from "../assets/image.png";
 
 const Configuracion = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -9,23 +8,18 @@ const Configuracion = () => {
   const [showTripForm, setShowTripForm] = useState(false);
 
   const handleVehicleSubmit = (data) => {
-    // Aquí iría la lógica para guardar/actualizar el vehículo
     console.log("Datos del vehículo:", data);
     setIsModalOpen(false);
     setVehicleData(data);
   };
 
   const handleTripSubmit = (data) => {
-    // Aquí iría la lógica para guardar el viaje
     console.log("Datos del viaje:", data);
     setShowTripForm(false);
   };
 
   return (
     <div className="configuracion-container">
-      <div className="logo-container">
-        <img src={goatLogo} alt="Logo WheelsAndes" className="logo-image" />
-      </div>
       <h1 className="configuracion-title">Configuración</h1>
 
       <div className="configuracion-section">
@@ -41,31 +35,42 @@ const Configuracion = () => {
             <p>
               <strong>Modelo:</strong> {vehicleData.modelo}
             </p>
+            <p>
+              <strong>Año:</strong> {vehicleData.año}
+            </p>
+            <p>
+              <strong>Color:</strong> {vehicleData.color}
+            </p>
             <button
               onClick={() => setIsModalOpen(true)}
-              className="btn btn-primary hover-lift"
+              className="btn btn-primary"
             >
               Actualizar Vehículo
             </button>
           </div>
         ) : (
-          <button
-            onClick={() => setIsModalOpen(true)}
-            className="btn btn-primary hover-lift"
-          >
-            Registrar Vehículo
-          </button>
+          <div className="vehicle-info">
+            <p>No tienes ningún vehículo registrado.</p>
+            <button
+              onClick={() => setIsModalOpen(true)}
+              className="btn btn-primary"
+            >
+              Registrar Vehículo
+            </button>
+          </div>
         )}
       </div>
 
       <div className="configuracion-section">
         <h2>Gestión de Viajes</h2>
-        <button
-          onClick={() => setShowTripForm(true)}
-          className="btn btn-primary hover-lift"
-        >
-          Crear Nuevo Viaje
-        </button>
+        <div className="vehicle-info">
+          <button
+            onClick={() => setShowTripForm(true)}
+            className="btn btn-primary"
+          >
+            Crear Nuevo Viaje
+          </button>
+        </div>
       </div>
 
       <Modal
@@ -83,9 +88,7 @@ const Configuracion = () => {
           className="space-y-4"
         >
           <div className="form-group">
-            <label htmlFor="placa" className="block mb-2 select-none">
-              Placa
-            </label>
+            <label htmlFor="placa">Placa</label>
             <input
               type="text"
               id="placa"
@@ -98,9 +101,7 @@ const Configuracion = () => {
           </div>
 
           <div className="form-group">
-            <label htmlFor="marca" className="block mb-2 select-none">
-              Marca
-            </label>
+            <label htmlFor="marca">Marca</label>
             <input
               type="text"
               id="marca"
@@ -113,9 +114,7 @@ const Configuracion = () => {
           </div>
 
           <div className="form-group">
-            <label htmlFor="modelo" className="block mb-2 select-none">
-              Modelo
-            </label>
+            <label htmlFor="modelo">Modelo</label>
             <input
               type="text"
               id="modelo"
@@ -128,9 +127,7 @@ const Configuracion = () => {
           </div>
 
           <div className="form-group">
-            <label htmlFor="año" className="block mb-2 select-none">
-              Año
-            </label>
+            <label htmlFor="año">Año</label>
             <input
               type="number"
               id="año"
@@ -144,9 +141,7 @@ const Configuracion = () => {
           </div>
 
           <div className="form-group">
-            <label htmlFor="color" className="block mb-2 select-none">
-              Color
-            </label>
+            <label htmlFor="color">Color</label>
             <input
               type="text"
               id="color"
@@ -158,9 +153,7 @@ const Configuracion = () => {
           </div>
 
           <div className="form-group">
-            <label htmlFor="tipo" className="block mb-2 select-none">
-              Tipo de Vehículo
-            </label>
+            <label htmlFor="tipo">Tipo de Vehículo</label>
             <select
               id="tipo"
               name="tipo"
@@ -175,9 +168,7 @@ const Configuracion = () => {
           </div>
 
           <div className="form-group">
-            <label htmlFor="capacidad" className="block mb-2 select-none">
-              Capacidad de Pasajeros
-            </label>
+            <label htmlFor="capacidad">Capacidad de Pasajeros</label>
             <input
               type="number"
               id="capacidad"
@@ -190,9 +181,7 @@ const Configuracion = () => {
           </div>
 
           <div className="form-group">
-            <label htmlFor="combustible" className="block mb-2 select-none">
-              Tipo de Combustible
-            </label>
+            <label htmlFor="combustible">Tipo de Combustible</label>
             <select
               id="combustible"
               name="combustible"
@@ -207,9 +196,7 @@ const Configuracion = () => {
           </div>
 
           <div className="form-group">
-            <label htmlFor="transmision" className="block mb-2 select-none">
-              Transmisión
-            </label>
+            <label htmlFor="transmision">Transmisión</label>
             <select
               id="transmision"
               name="transmision"
@@ -222,9 +209,7 @@ const Configuracion = () => {
           </div>
 
           <div className="form-group">
-            <label htmlFor="kilometraje" className="block mb-2 select-none">
-              Kilometraje
-            </label>
+            <label htmlFor="kilometraje">Kilometraje</label>
             <input
               type="number"
               id="kilometraje"
@@ -237,9 +222,7 @@ const Configuracion = () => {
           </div>
 
           <div className="form-group">
-            <label htmlFor="estado" className="block mb-2 select-none">
-              Estado del Vehículo
-            </label>
+            <label htmlFor="estado">Estado del Vehículo</label>
             <select
               id="estado"
               name="estado"
@@ -254,29 +237,8 @@ const Configuracion = () => {
           </div>
 
           <div className="form-group">
-            <label htmlFor="observaciones" className="block mb-2 select-none">
-              Observaciones
-            </label>
-            <textarea
-              id="observaciones"
-              name="observaciones"
-              defaultValue={vehicleData?.observaciones}
-              className="form-control"
-              rows="3"
-              placeholder="Ingrese cualquier observación adicional sobre el vehículo"
-            />
-          </div>
-
-          <div className="modal-footer">
-            <button
-              type="button"
-              onClick={() => setIsModalOpen(false)}
-              className="btn btn-secondary"
-            >
-              Cancelar
-            </button>
             <button type="submit" className="btn btn-primary">
-              {vehicleData ? "Actualizar" : "Registrar"} Vehículo
+              {vehicleData ? "Actualizar" : "Registrar"}
             </button>
           </div>
         </form>
@@ -297,9 +259,7 @@ const Configuracion = () => {
           className="space-y-4"
         >
           <div className="form-group">
-            <label htmlFor="origen" className="block mb-2 select-none">
-              Origen
-            </label>
+            <label htmlFor="origen">Origen</label>
             <input
               type="text"
               id="origen"
@@ -311,9 +271,7 @@ const Configuracion = () => {
           </div>
 
           <div className="form-group">
-            <label htmlFor="destino" className="block mb-2 select-none">
-              Destino
-            </label>
+            <label htmlFor="destino">Destino</label>
             <input
               type="text"
               id="destino"
@@ -325,9 +283,7 @@ const Configuracion = () => {
           </div>
 
           <div className="form-group">
-            <label htmlFor="fecha" className="block mb-2 select-none">
-              Fecha
-            </label>
+            <label htmlFor="fecha">Fecha</label>
             <input
               type="date"
               id="fecha"
@@ -339,9 +295,7 @@ const Configuracion = () => {
           </div>
 
           <div className="form-group">
-            <label htmlFor="hora" className="block mb-2 select-none">
-              Hora
-            </label>
+            <label htmlFor="hora">Hora</label>
             <input
               type="time"
               id="hora"
@@ -352,9 +306,7 @@ const Configuracion = () => {
           </div>
 
           <div className="form-group">
-            <label htmlFor="asientos" className="block mb-2 select-none">
-              Asientos Disponibles
-            </label>
+            <label htmlFor="asientos">Asientos Disponibles</label>
             <input
               type="number"
               id="asientos"
@@ -367,9 +319,7 @@ const Configuracion = () => {
           </div>
 
           <div className="form-group">
-            <label htmlFor="precio" className="block mb-2 select-none">
-              Precio por Asiento
-            </label>
+            <label htmlFor="precio">Precio por Asiento</label>
             <input
               type="number"
               id="precio"
@@ -382,9 +332,7 @@ const Configuracion = () => {
           </div>
 
           <div className="form-group">
-            <label htmlFor="descripcion" className="block mb-2 select-none">
-              Descripción
-            </label>
+            <label htmlFor="descripcion">Descripción</label>
             <textarea
               id="descripcion"
               name="descripcion"
@@ -394,14 +342,7 @@ const Configuracion = () => {
             />
           </div>
 
-          <div className="modal-footer">
-            <button
-              type="button"
-              onClick={() => setShowTripForm(false)}
-              className="btn btn-secondary"
-            >
-              Cancelar
-            </button>
+          <div className="form-group">
             <button type="submit" className="btn btn-primary">
               Crear Viaje
             </button>

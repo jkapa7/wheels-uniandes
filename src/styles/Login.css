@@ -4,6 +4,24 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  min-width: 100vw;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  background: #f5f6fa;
+}
+
+.login-page-container {
+  width: 100vw;
+  height: 100vh;
+  min-height: 100vh;
+  min-width: 100vw;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: #f5f6fa;
 }
 

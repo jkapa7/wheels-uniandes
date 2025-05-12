@@ -1,7 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import "../styles/FilterBar.css";
 
-const FilterBar = ({ onFilterChange }) => {
+const FilterBar = ({ onFilterChange, onClearFilters }) => {
+  const [selectValues, setSelectValues] = useState({
+    driverGender: "",
+    origin: "",
+    destination: "",
+  });
+
   const bogotaLocalidades = [
     "Usaquén",
     "Chapinero",
@@ -27,7 +33,20 @@ const FilterBar = ({ onFilterChange }) => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+    setSelectValues((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
     onFilterChange(name, value);
+  };
+
+  const handleClearFilters = () => {
+    setSelectValues({
+      driverGender: "",
+      origin: "",
+      destination: "",
+    });
+    onClearFilters();
   };
 
   return (
@@ -39,6 +58,7 @@ const FilterBar = ({ onFilterChange }) => {
           name="driverGender"
           onChange={handleChange}
           className="filter-select"
+          value={selectValues.driverGender}
         >
           <option value="">Todos</option>
           <option value="male">Hombre</option>
@@ -53,6 +73,7 @@ const FilterBar = ({ onFilterChange }) => {
           name="origin"
           onChange={handleChange}
           className="filter-select"
+          value={selectValues.origin}
         >
           <option value="">Todas las localidades</option>
           {bogotaLocalidades.map((localidad) => (
@@ -70,6 +91,7 @@ const FilterBar = ({ onFilterChange }) => {
           name="destination"
           onChange={handleChange}
           className="filter-select"
+          value={selectValues.destination}
         >
           <option value="">Todas las localidades</option>
           {bogotaLocalidades.map((localidad) => (
@@ -78,6 +100,12 @@ const FilterBar = ({ onFilterChange }) => {
             </option>
           ))}
         </select>
+      </div>
+
+      <div className="filter-group button-group">
+        <button onClick={handleClearFilters} className="clear-filters-btn">
+          Limpiar Filtros
+        </button>
       </div>
     </div>
   );

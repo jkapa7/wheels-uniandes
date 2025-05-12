@@ -6,6 +6,15 @@ const Configuracion = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [vehicleData, setVehicleData] = useState(null);
   const [showTripForm, setShowTripForm] = useState(false);
+  const [tripData, setTripData] = useState({
+    origen: "",
+    destino: "",
+    fecha: "",
+    hora: "",
+    asientos: "",
+    precio: "",
+    descripcion: "",
+  });
 
   const handleVehicleSubmit = (data) => {
     console.log("Datos del vehículo:", data);
@@ -13,9 +22,27 @@ const Configuracion = () => {
     setVehicleData(data);
   };
 
-  const handleTripSubmit = (data) => {
-    console.log("Datos del viaje:", data);
+  const handleTripChange = (e) => {
+    const { name, value } = e.target;
+    setTripData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleTripSubmit = (e) => {
+    e.preventDefault();
+    console.log("Datos del viaje:", tripData);
     setShowTripForm(false);
+    setTripData({
+      origen: "",
+      destino: "",
+      fecha: "",
+      hora: "",
+      asientos: "",
+      precio: "",
+      descripcion: "",
+    });
   };
 
   return (
@@ -180,63 +207,14 @@ const Configuracion = () => {
             />
           </div>
 
-          <div className="form-group">
-            <label htmlFor="combustible">Tipo de Combustible</label>
-            <select
-              id="combustible"
-              name="combustible"
-              defaultValue={vehicleData?.combustible || "gasolina"}
-              className="form-control"
+          <div className="modal-footer">
+            <button
+              type="button"
+              onClick={() => setIsModalOpen(false)}
+              className="btn btn-secondary"
             >
-              <option value="gasolina">Gasolina</option>
-              <option value="diesel">Diesel</option>
-              <option value="electrico">Eléctrico</option>
-              <option value="hibrido">Híbrido</option>
-            </select>
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="transmision">Transmisión</label>
-            <select
-              id="transmision"
-              name="transmision"
-              defaultValue={vehicleData?.transmision || "manual"}
-              className="form-control"
-            >
-              <option value="manual">Manual</option>
-              <option value="automatico">Automático</option>
-            </select>
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="kilometraje">Kilometraje</label>
-            <input
-              type="number"
-              id="kilometraje"
-              name="kilometraje"
-              defaultValue={vehicleData?.kilometraje}
-              className="form-control"
-              required
-              min="0"
-            />
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="estado">Estado del Vehículo</label>
-            <select
-              id="estado"
-              name="estado"
-              defaultValue={vehicleData?.estado || "excelente"}
-              className="form-control"
-            >
-              <option value="excelente">Excelente</option>
-              <option value="bueno">Bueno</option>
-              <option value="regular">Regular</option>
-              <option value="malo">Malo</option>
-            </select>
-          </div>
-
-          <div className="form-group">
+              Cancelar
+            </button>
             <button type="submit" className="btn btn-primary">
               {vehicleData ? "Actualizar" : "Registrar"}
             </button>
@@ -249,21 +227,15 @@ const Configuracion = () => {
         onClose={() => setShowTripForm(false)}
         title="Crear Nuevo Viaje"
       >
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            const formData = new FormData(e.target);
-            const data = Object.fromEntries(formData.entries());
-            handleTripSubmit(data);
-          }}
-          className="space-y-4"
-        >
+        <form onSubmit={handleTripSubmit} className="space-y-4">
           <div className="form-group">
             <label htmlFor="origen">Origen</label>
             <input
               type="text"
               id="origen"
               name="origen"
+              value={tripData.origen}
+              onChange={handleTripChange}
               className="form-control"
               required
               placeholder="Ciudad de origen"
@@ -276,6 +248,8 @@ const Configuracion = () => {
               type="text"
               id="destino"
               name="destino"
+              value={tripData.destino}
+              onChange={handleTripChange}
               className="form-control"
               required
               placeholder="Ciudad de destino"
@@ -288,6 +262,8 @@ const Configuracion = () => {
               type="date"
               id="fecha"
               name="fecha"
+              value={tripData.fecha}
+              onChange={handleTripChange}
               className="form-control"
               required
               min={new Date().toISOString().split("T")[0]}
@@ -300,6 +276,8 @@ const Configuracion = () => {
               type="time"
               id="hora"
               name="hora"
+              value={tripData.hora}
+              onChange={handleTripChange}
               className="form-control"
               required
             />
@@ -311,6 +289,8 @@ const Configuracion = () => {
               type="number"
               id="asientos"
               name="asientos"
+              value={tripData.asientos}
+              onChange={handleTripChange}
               className="form-control"
               required
               min="1"
@@ -324,6 +304,8 @@ const Configuracion = () => {
               type="number"
               id="precio"
               name="precio"
+              value={tripData.precio}
+              onChange={handleTripChange}
               className="form-control"
               required
               min="0"
@@ -336,13 +318,22 @@ const Configuracion = () => {
             <textarea
               id="descripcion"
               name="descripcion"
+              value={tripData.descripcion}
+              onChange={handleTripChange}
               className="form-control"
               rows="3"
               placeholder="Detalles adicionales del viaje"
             />
           </div>
 
-          <div className="form-group">
+          <div className="modal-footer">
+            <button
+              type="button"
+              onClick={() => setShowTripForm(false)}
+              className="btn btn-secondary"
+            >
+              Cancelar
+            </button>
             <button type="submit" className="btn btn-primary">
               Crear Viaje
             </button>

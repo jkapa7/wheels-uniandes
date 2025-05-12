@@ -4,7 +4,7 @@
   display: grid;
   grid-template-rows: auto 1fr;
   position: relative;
-  background: #f5f6fa;
+  background: var(--background-light);
 }
 
 .home-header {
@@ -26,7 +26,6 @@
 .home-content {
   padding: 2rem;
   width: 100%;
-  max-width: 900px;
   margin: 0 auto;
   display: grid;
   grid-template-rows: auto 1fr;

@@ -6,7 +6,7 @@
   margin-bottom: 2rem;
   display: flex;
   gap: 2rem;
-  align-items: center;
+  align-items: flex-end;
   flex-wrap: wrap;
 }
 
@@ -14,6 +14,14 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  justify-content: flex-end;
+  height: 100%;
+}
+
+.filter-group.button-group {
+  justify-content: flex-end;
+  align-items: flex-end;
+  height: 100%;
 }
 
 .filter-group label {
@@ -51,4 +59,26 @@
   .filter-input {
     width: 100%;
   }
+}
+
+.clear-filters-btn {
+  padding: 0.6rem 1rem;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 0.6rem;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+  height: 38px;
+  align-self: flex-end;
+  margin-top: 1.7rem;
+}
+
+.clear-filters-btn:hover {
+  background-color: #d32f2f;
+}
+
+.clear-filters-btn:active {
+  background-color: #b71c1c;
 }

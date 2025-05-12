@@ -10,7 +10,6 @@ function Register() {
     telefono: "",
     email: "",
     password: "",
-    confirmPassword: "",
   });
 
   const [errors, setErrors] = useState({});
@@ -43,10 +42,6 @@ function Register() {
       newErrors.password = "La contraseña debe tener al menos 6 caracteres";
     }
 
-    if (formData.password !== formData.confirmPassword) {
-      newErrors.confirmPassword = "Las contraseñas no coinciden";
-    }
-
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -67,7 +62,7 @@ function Register() {
   };
 
   return (
-    <div className="page-container">
+    <div className="register-page-container">
       <div className="auth-flex-container">
         <div className="auth-image-container">
           <img
@@ -77,10 +72,6 @@ function Register() {
           />
         </div>
         <div className="register-container">
-          <div className="register-header">
-            <h1 className="app-title">WheelsAndes</h1>
-            <p className="app-subtitle">Comparte viajes, ahorra dinero</p>
-          </div>
           <div className="register-box">
             <h2>Registro</h2>
             <form onSubmit={handleSubmit}>
@@ -138,20 +129,6 @@ function Register() {
                 />
                 {errors.password && (
                   <div className="error-message">{errors.password}</div>
-                )}
-              </div>
-              <div className="form-group">
-                <label htmlFor="confirmPassword">Confirmar Contraseña</label>
-                <input
-                  type="password"
-                  id="confirmPassword"
-                  name="confirmPassword"
-                  value={formData.confirmPassword}
-                  onChange={handleChange}
-                  placeholder="••••••••"
-                />
-                {errors.confirmPassword && (
-                  <div className="error-message">{errors.confirmPassword}</div>
                 )}
               </div>
               <button type="submit" className="register-button">

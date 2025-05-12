@@ -13,11 +13,6 @@ const VehicleRegistration = () => {
     año: "",
     tipo: "carro",
     capacidad: "",
-    combustible: "gasolina",
-    transmision: "manual",
-    kilometraje: "",
-    estado: "excelente",
-    observaciones: "",
   });
 
   const handleChange = (e) => {
@@ -30,10 +25,8 @@ const VehicleRegistration = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Aquí iría la lógica para enviar los datos al backend
     console.log("Datos del vehículo:", formData);
     setIsModalOpen(false);
-    // Resetear el formulario
     setFormData({
       placa: "",
       modelo: "",
@@ -42,34 +35,24 @@ const VehicleRegistration = () => {
       año: "",
       tipo: "carro",
       capacidad: "",
-      combustible: "gasolina",
-      transmision: "manual",
-      kilometraje: "",
-      estado: "excelente",
-      observaciones: "",
     });
-  };
-
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
   };
 
   return (
     <div className="page-container">
       <h1 className="page-title">Registro de Vehículo</h1>
       <div className="vehicle-registration-header">
-        <button onClick={openModal} className="btn btn-primary hover-lift">
+        <button
+          onClick={() => setIsModalOpen(true)}
+          className="btn btn-primary hover-lift"
+        >
           Registrar Nuevo Vehículo
         </button>
       </div>
 
       <Modal
         isOpen={isModalOpen}
-        onClose={closeModal}
+        onClose={() => setIsModalOpen(false)}
         title="Registro de Vehículo"
       >
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -187,93 +170,10 @@ const VehicleRegistration = () => {
             />
           </div>
 
-          <div className="form-group">
-            <label htmlFor="combustible" className="block mb-2 select-none">
-              Tipo de Combustible
-            </label>
-            <select
-              id="combustible"
-              name="combustible"
-              value={formData.combustible}
-              onChange={handleChange}
-              className="form-control"
-            >
-              <option value="gasolina">Gasolina</option>
-              <option value="diesel">Diesel</option>
-              <option value="electrico">Eléctrico</option>
-              <option value="hibrido">Híbrido</option>
-            </select>
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="transmision" className="block mb-2 select-none">
-              Transmisión
-            </label>
-            <select
-              id="transmision"
-              name="transmision"
-              value={formData.transmision}
-              onChange={handleChange}
-              className="form-control"
-            >
-              <option value="manual">Manual</option>
-              <option value="automatico">Automático</option>
-            </select>
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="kilometraje" className="block mb-2 select-none">
-              Kilometraje
-            </label>
-            <input
-              type="number"
-              id="kilometraje"
-              name="kilometraje"
-              value={formData.kilometraje}
-              onChange={handleChange}
-              className="form-control"
-              required
-              min="0"
-            />
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="estado" className="block mb-2 select-none">
-              Estado del Vehículo
-            </label>
-            <select
-              id="estado"
-              name="estado"
-              value={formData.estado}
-              onChange={handleChange}
-              className="form-control"
-            >
-              <option value="excelente">Excelente</option>
-              <option value="bueno">Bueno</option>
-              <option value="regular">Regular</option>
-              <option value="malo">Malo</option>
-            </select>
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="observaciones" className="block mb-2 select-none">
-              Observaciones
-            </label>
-            <textarea
-              id="observaciones"
-              name="observaciones"
-              value={formData.observaciones}
-              onChange={handleChange}
-              className="form-control"
-              rows="3"
-              placeholder="Ingrese cualquier observación adicional sobre el vehículo"
-            />
-          </div>
-
           <div className="modal-footer">
             <button
               type="button"
-              onClick={closeModal}
+              onClick={() => setIsModalOpen(false)}
               className="btn btn-secondary"
             >
               Cancelar

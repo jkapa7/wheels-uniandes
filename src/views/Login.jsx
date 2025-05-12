@@ -9,6 +9,7 @@ function Login() {
     email: "",
     password: "",
   });
+  const [errors, setErrors] = useState({});
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -19,13 +20,34 @@ function Login() {
     }));
   };
 
+  const validateForm = () => {
+    const newErrors = {};
+
+    if (!credentials.email.trim()) {
+      newErrors.email = "El correo electrónico es requerido";
+    } else if (!/\S+@\S+\.\S+/.test(credentials.email)) {
+      newErrors.email = "El correo electrónico no es válido";
+    } else if (!credentials.email.endsWith("@uniandes.edu.co")) {
+      newErrors.email = "El correo electrónico debe ser de Uniandes";
+    }
+
+    if (!credentials.password) {
+      newErrors.password = "La contraseña es requerida";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    navigate("/home");
+    if (validateForm()) {
+      navigate("/home");
+    }
   };
 
   return (
-    <div className="page-container">
+    <div className="login-page-container">
       <div className="auth-flex-container">
         <div className="auth-image-container">
           <img
@@ -50,9 +72,11 @@ function Login() {
                   name="email"
                   value={credentials.email}
                   onChange={handleChange}
-                  required
                   placeholder="ejemplo@uniandes.edu.co"
                 />
+                {errors.email && (
+                  <div className="error-message">{errors.email}</div>
+                )}
               </div>
               <div className="form-group">
                 <label htmlFor="password">Contraseña</label>
@@ -62,9 +86,11 @@ function Login() {
                   name="password"
                   value={credentials.password}
                   onChange={handleChange}
-                  required
                   placeholder="••••••••"
                 />
+                {errors.password && (
+                  <div className="error-message">{errors.password}</div>
+                )}
               </div>
               <button type="submit" className="login-button">
                 Ingresar

@@ -197,6 +197,15 @@
   color: var(--text-light);
 }
 
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+}
+
 @keyframes slideUp {
   from {
     opacity: 0;
@@ -228,5 +237,13 @@
   .btn {
     width: 100%;
     justify-content: center;
+  }
+
+  .modal-footer {
+    flex-direction: column;
+  }
+
+  .modal-footer .btn {
+    width: 100%;
   }
 }

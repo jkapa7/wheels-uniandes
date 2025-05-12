@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../styles/Solicitudes.css";
+import "../styles/Requests.css";
 
 const Solicitudes = () => {
   // Datos de ejemplo

@@ -7,68 +7,68 @@ import goatLogo from "../assets/react.svg";
 
 const mockTrips = [
   {
-    nombre: "Laura Martínez",
-    origen: "Uniandes",
-    destino: "Suba",
-    cupos: 2,
-    conductor: "Laura Martínez",
-    generoConductor: "female",
+    name: "Laura Martínez",
+    origin: "Uniandes",
+    destination: "Suba",
+    seats: 2,
+    driver: "Laura Martínez",
+    driverGender: "female",
   },
   {
-    nombre: "Andrés Gómez",
-    origen: "Chapinero",
-    destino: "Cedritos",
-    cupos: 1,
-    conductor: "Andrés Gómez",
-    generoConductor: "male",
+    name: "Andrés Gómez",
+    origin: "Chapinero",
+    destination: "Cedritos",
+    seats: 1,
+    driver: "Andrés Gómez",
+    driverGender: "male",
   },
   {
-    nombre: "Maríana López",
-    origen: "Usaquén",
-    destino: "Centro",
-    cupos: 3,
-    conductor: "Maríana López",
-    generoConductor: "female",
+    name: "Maríana López",
+    origin: "Usaquén",
+    destination: "Centro",
+    seats: 3,
+    driver: "Maríana López",
+    driverGender: "female",
   },
   {
-    nombre: "Diego Ramírez",
-    origen: "Teusaquillo",
-    destino: "Usaquén",
-    cupos: 2,
-    conductor: "Diego Ramírez",
-    generoConductor: "male",
+    name: "Diego Ramírez",
+    origin: "Teusaquillo",
+    destination: "Usaquén",
+    seats: 2,
+    driver: "Diego Ramírez",
+    driverGender: "male",
   },
   {
-    nombre: "Camila Torres",
-    origen: "Fontibón",
-    destino: "Uniandes",
-    cupos: 1,
-    conductor: "Camila Torres",
-    generoConductor: "female",
+    name: "Camila Torres",
+    origin: "Fontibón",
+    destination: "Uniandes",
+    seats: 1,
+    driver: "Camila Torres",
+    driverGender: "female",
   },
   {
-    nombre: "Juan Pérez",
-    origen: "Kennedy",
-    destino: "Centro",
-    cupos: 2,
-    conductor: "Juan Pérez",
-    generoConductor: "male",
+    name: "Juan Pérez",
+    origin: "Kennedy",
+    destination: "Centro",
+    seats: 2,
+    driver: "Juan Pérez",
+    driverGender: "male",
   },
   {
-    nombre: "Sofía Herrera",
-    origen: "Engativá",
-    destino: "Chapinero",
-    cupos: 2,
-    conductor: "Sofía Herrera",
-    generoConductor: "female",
+    name: "Sofía Herrera",
+    origin: "Engativá",
+    destination: "Chapinero",
+    seats: 2,
+    driver: "Sofía Herrera",
+    driverGender: "female",
   },
   {
-    nombre: "Carlos Ruiz",
-    origen: "Suba",
-    destino: "Usaquén",
-    cupos: 1,
-    conductor: "Carlos Ruiz",
-    generoConductor: "male",
+    name: "Carlos Ruiz",
+    origin: "Suba",
+    destination: "Usaquén",
+    seats: 1,
+    driver: "Carlos Ruiz",
+    driverGender: "male",
   },
 ];
 
@@ -89,25 +89,18 @@ function HomePage() {
 
   const filteredTrips = mockTrips.filter((trip) => {
     const matchesGender =
-      !filters.driverGender || trip.generoConductor === filters.driverGender;
+      !filters.driverGender || trip.driverGender === filters.driverGender;
     const matchesOrigin =
-      !filters.origin || trip.origen.toLowerCase().includes(filters.origin);
+      !filters.origin || trip.origin.toLowerCase().includes(filters.origin);
     const matchesDestination =
       !filters.destination ||
-      trip.destino.toLowerCase().includes(filters.destination);
+      trip.destination.toLowerCase().includes(filters.destination);
 
     return matchesGender && matchesOrigin && matchesDestination;
   });
 
-  const handleLogout = () => {
-    navigate("/");
-  };
-
   return (
     <div className="home-container">
-      <header className="home-header">
-        <h1>Viajes Disponibles</h1>
-      </header>
       <main className="home-content">
         <FilterBar onFilterChange={handleFilterChange} />
         <section className="trips-list">
@@ -115,12 +108,12 @@ function HomePage() {
             filteredTrips.map((trip, idx) => (
               <TripCard
                 key={idx}
-                nombre={trip.nombre}
-                origen={trip.origen}
-                destino={trip.destino}
-                cupos={trip.cupos}
-                conductor={trip.conductor}
-                generoConductor={trip.generoConductor}
+                name={trip.name}
+                origin={trip.origin}
+                destination={trip.destination}
+                seats={trip.seats}
+                driver={trip.driver}
+                driverGender={trip.driverGender}
               />
             ))
           ) : (

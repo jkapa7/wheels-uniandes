@@ -53,11 +53,46 @@
     flex-direction: column;
     align-items: stretch;
     gap: 1rem;
+    padding: 1.2rem;
   }
 
   .filter-select,
   .filter-input {
     width: 100%;
+    min-width: unset;
+  }
+
+  .filter-group.button-group {
+    align-items: stretch;
+    margin-top: 0.5rem;
+  }
+
+  .clear-filters-btn {
+    margin-top: 0.5rem;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .filter-bar {
+    padding: 1rem;
+    border-radius: 0.8rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .filter-group {
+    gap: 0.3rem;
+  }
+
+  .filter-group label {
+    font-size: 0.85rem;
+  }
+
+  .filter-select,
+  .filter-input {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.9rem;
+    border-radius: 0.5rem;
   }
 }
 
@@ -81,4 +116,15 @@
 
 .clear-filters-btn:active {
   background-color: #b71c1c;
+}
+
+/* Optimizaciones táctiles */
+@media (hover: none) {
+  .clear-filters-btn:hover {
+    background-color: #f44336;
+  }
+
+  .clear-filters-btn:active {
+    background-color: #d32f2f;
+  }
 }

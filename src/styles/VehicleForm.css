@@ -9,18 +9,22 @@
   justify-content: center;
   align-items: center;
   z-index: 1000;
+  animation: fadeIn 0.3s ease-out;
+  backdrop-filter: blur(4px);
 }
 
 .modal-content {
-  background: white;
+  background-color: white;
   padding: 2rem;
-  border-radius: 8px;
+  border-radius: 1rem;
   width: 90%;
   max-width: 600px;
   max-height: 90vh;
   overflow-y: auto;
   position: relative;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  animation: modalAppear 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-origin: center;
 }
 
 .modal-header {
@@ -28,11 +32,13 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1.5rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 1rem;
 }
 
 .modal-header h2 {
   margin: 0;
-  color: #333;
+  color: var(--text-dark);
   font-size: 1.5rem;
 }
 
@@ -41,12 +47,13 @@
   border: none;
   cursor: pointer;
   padding: 0.5rem;
-  color: #666;
-  transition: color 0.2s;
+  color: var(--text-dark);
+  transition: all 0.3s ease;
 }
 
 .modal-close:hover {
-  color: #333;
+  color: var(--primary-blue);
+  transform: rotate(90deg);
 }
 
 .vehicle-form {
@@ -56,15 +63,15 @@
 }
 
 .form-section {
-  background: #f8f9fa;
-  padding: 1.5rem;
-  border-radius: 6px;
+  margin-bottom: 2rem;
 }
 
 .form-section h3 {
-  margin: 0 0 1rem 0;
-  color: #444;
-  font-size: 1.1rem;
+  color: var(--text-dark);
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #eee;
 }
 
 .form-grid {
@@ -85,66 +92,105 @@
 
 .form-group label {
   font-weight: 500;
-  color: #555;
+  color: var(--text-dark);
+  opacity: 0.7;
+  font-size: 0.9rem;
 }
 
 .form-group input {
   padding: 0.75rem;
   border: 1px solid #ddd;
-  border-radius: 4px;
+  border-radius: 0.6rem;
   font-size: 1rem;
-  transition: border-color 0.2s;
+  transition: all 0.3s ease;
 }
 
 .form-group input:focus {
   outline: none;
-  border-color: #007bff;
+  border-color: var(--primary-blue);
+  box-shadow: 0 0 0 2px rgba(58, 92, 168, 0.1);
 }
 
 .modal-buttons {
   display: flex;
   justify-content: flex-end;
   gap: 1rem;
-  margin-top: 1rem;
+  margin-top: 2rem;
 }
 
 .cancel-button,
 .confirm-button {
-  padding: 0.75rem 1.5rem;
-  border-radius: 4px;
-  font-weight: 500;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 0.6rem;
   cursor: pointer;
-  transition: all 0.2s;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
 }
 
 .cancel-button {
-  background: #f8f9fa;
-  border: 1px solid #ddd;
-  color: #666;
-}
-
-.cancel-button:hover {
-  background: #e9ecef;
-  color: #333;
+  background-color: #f0f0f0;
+  color: var(--text-dark);
 }
 
 .confirm-button {
-  background: #007bff;
-  border: none;
+  background-color: var(--button-green);
   color: white;
 }
 
+.cancel-button:hover {
+  background-color: #e0e0e0;
+  transform: translateY(-1px);
+}
+
 .confirm-button:hover {
-  background: #0056b3;
+  background-color: var(--button-green-hover);
+  transform: translateY(-1px);
+}
+
+.cancel-button:active,
+.confirm-button:active {
+  transform: translateY(0);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    backdrop-filter: blur(0);
+  }
+  to {
+    opacity: 1;
+    backdrop-filter: blur(4px);
+  }
+}
+
+@keyframes modalAppear {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 @media (max-width: 768px) {
+  .modal-content {
+    padding: 1.5rem;
+  }
+
   .form-grid {
     grid-template-columns: 1fr;
   }
 
-  .modal-content {
-    width: 95%;
-    padding: 1.5rem;
+  .modal-buttons {
+    flex-direction: column;
+  }
+
+  .cancel-button,
+  .confirm-button {
+    width: 100%;
   }
 }

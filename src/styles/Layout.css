@@ -38,10 +38,25 @@
   .main-content {
     margin-left: 0;
     padding: 1rem;
+    padding-top: 70px; /* Espacio para el botón de menú móvil */
+  }
+
+  .content-container {
+    padding: 1.5rem;
+    margin-top: 1rem;
+    border-radius: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-content {
+    padding: 0.5rem;
+    padding-top: 70px;
   }
 
   .content-container {
     padding: 1rem;
+    border-radius: 8px;
   }
 }
 
@@ -97,4 +112,34 @@
   border-color: #3498db;
   outline: none;
   box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+/* Estilos responsivos para dispositivos móviles */
+@media (hover: none) {
+  .card:hover {
+    transform: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+
+  .btn-primary:hover {
+    transform: none;
+  }
+
+  .btn:active,
+  .card:active {
+    transform: scale(0.98);
+  }
+}
+
+/* Ajustes de accesibilidad para móviles */
+@media (max-width: 768px) {
+  input,
+  select,
+  button {
+    font-size: 16px !important; /* Evita el zoom automático en iOS */
+  }
+
+  .btn {
+    padding: 0.875rem 1.5rem; /* Botones más grandes para pantallas táctiles */
+  }
 }

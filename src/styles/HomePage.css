@@ -91,3 +91,79 @@
   font-weight: 600;
   font-size: 1.1rem;
 }
+
+/* Mejoras para dispositivos móviles */
+@media (max-width: 768px) {
+  .home-content {
+    padding: 1.5rem 1rem;
+  }
+
+  .trips-list {
+    padding-right: 0;
+    max-height: none;
+  }
+
+  .page-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .no-trips-message {
+    padding: 2rem 1rem;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-content {
+    padding: 1rem 0.5rem;
+  }
+
+  .page-title {
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
+    padding: 0 0.5rem;
+  }
+
+  .home-header {
+    padding: 1.5rem 1rem 1rem 1rem;
+  }
+
+  .logout-logo-button {
+    bottom: 1.5rem;
+    left: 1.5rem;
+    padding: 0.6rem 1.2rem;
+  }
+
+  .goat-logo {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .trips-list {
+    gap: 1rem;
+  }
+}
+
+/* Mensaje cuando no hay viajes */
+.no-trips-message {
+  background: rgba(58, 92, 168, 0.05);
+  padding: 3rem;
+  border-radius: 0.8rem;
+  text-align: center;
+  font-size: 1.1rem;
+  color: var(--text-dark);
+  width: 100%;
+  opacity: 0.8;
+}
+
+/* Optimizaciones táctiles */
+@media (hover: none) {
+  .logout-logo-button:hover {
+    background: var(--primary-blue);
+  }
+
+  .logout-logo-button:active {
+    background: var(--secondary-blue);
+  }
+}

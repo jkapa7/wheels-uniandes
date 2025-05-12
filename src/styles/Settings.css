@@ -3,7 +3,7 @@
   max-width: 1200px;
   margin: 0 auto;
   animation: fadeIn 0.5s ease-out;
-  background-color: var(--background-light);
+  background-color: var(--white);
 }
 
 .logo-container {
@@ -52,19 +52,19 @@
   border-radius: var(--border-radius);
   padding: 2.5rem;
   margin-bottom: 2rem;
-  box-shadow: var(--shadow-md);
-  transition: var(--transition-base);
-  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 10px rgba(58, 92, 168, 0.08);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(58, 92, 168, 0.1);
   animation: slideUp 0.5s ease-out;
 }
 
 .configuracion-section:hover {
   transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 6px 15px rgba(58, 92, 168, 0.12);
 }
 
 .configuracion-section h2 {
-  color: var(--text-dark);
+  color: var(--primary-blue);
   font-size: 1.75rem;
   font-weight: 600;
   margin-bottom: 2rem;
@@ -80,6 +80,7 @@
   margin-bottom: 1.5rem;
   border: 1px solid var(--border-color);
   transition: var(--transition-base);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
 .vehicle-info:hover {
@@ -95,16 +96,22 @@
   align-items: center;
   gap: 0.5rem;
   transition: var(--transition-base);
+  padding: 0.75rem;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border: 1px solid var(--border-color);
 }
 
 .vehicle-info p:hover {
   transform: translateX(5px);
+  background-color: rgba(255, 255, 255, 0.9);
 }
 
 .vehicle-info strong {
   color: var(--primary-blue);
   font-weight: 600;
   min-width: 120px;
+  display: inline-block;
 }
 
 .btn {
@@ -145,10 +152,11 @@
 .btn-primary {
   background: var(--primary-blue);
   color: white;
+  border: none;
 }
 
 .btn-primary:hover {
-  background: var(--primary-blue-dark);
+  background: var(--secondary-blue);
   transform: translateY(-2px);
 }
 
@@ -179,22 +187,21 @@
 .form-control {
   width: 100%;
   padding: 0.875rem 1rem;
-  border: 1px solid var(--border-color);
+  border: 2px solid var(--border-color);
   border-radius: var(--border-radius);
   font-size: 1rem;
-  transition: var(--transition-base);
+  transition: all 0.3s ease;
   background: var(--white);
 }
 
 .form-control:focus {
   outline: none;
   border-color: var(--primary-blue);
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
-  transform: translateY(-1px);
+  box-shadow: 0 0 0 3px rgba(58, 92, 168, 0.15);
 }
 
 .form-control::placeholder {
-  color: var(--text-light);
+  color: rgba(34, 50, 90, 0.5);
 }
 
 .modal-footer {
@@ -246,4 +253,488 @@
   .modal-footer .btn {
     width: 100%;
   }
+}
+
+.alert {
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  border-radius: var(--border-radius);
+  background-color: #fff;
+  border-left: 4px solid;
+  animation: slideIn 0.3s ease-out;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.alert-warning {
+  border-left-color: #f59e0b;
+  background-color: #fffbeb;
+  color: #92400e;
+}
+
+.form-text {
+  display: block;
+  margin-top: 0.25rem;
+  color: var(--text-light);
+  font-size: 0.875rem;
+}
+
+.selected-vehicle {
+  background-color: rgba(37, 99, 235, 0.05);
+  border: 1px solid rgba(37, 99, 235, 0.2);
+  border-radius: var(--border-radius);
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.selected-vehicle p {
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.selected-vehicle strong {
+  color: var(--primary-blue);
+  font-weight: 600;
+  min-width: 100px;
+}
+
+.alert-success {
+  background-color: rgba(76, 175, 80, 0.1);
+  color: var(--button-green);
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--button-green);
+  font-weight: 500;
+  text-align: center;
+}
+
+.vehicle-selection {
+  margin-bottom: 2rem;
+}
+
+.vehicle-selection h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--text-dark);
+}
+
+.vehicles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.vehicle-card {
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(58, 92, 168, 0.08);
+}
+
+.vehicle-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(58, 92, 168, 0.12);
+}
+
+.vehicle-card.selected {
+  border-color: var(--primary-blue);
+  background-color: rgba(58, 92, 168, 0.05);
+  box-shadow: 0 4px 12px rgba(58, 92, 168, 0.15);
+}
+
+.vehicle-card.selected::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  background: var(--primary-blue);
+  clip-path: polygon(0 0, 100% 0, 100% 100%);
+}
+
+.vehicle-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid rgba(58, 92, 168, 0.1);
+  padding-bottom: 0.75rem;
+}
+
+.vehicle-card-header h3 {
+  margin: 0;
+  color: var(--primary-blue);
+  font-weight: 600;
+}
+
+.vehicle-plate {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background: rgba(58, 92, 168, 0.1);
+  color: var(--primary-blue);
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+}
+
+.vehicle-card-body {
+  padding: 1.25rem;
+}
+
+.vehicle-card-body p {
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.vehicle-card-body p:last-child {
+  margin-bottom: 0;
+}
+
+.vehicle-card-body strong {
+  color: var(--primary-blue);
+  font-weight: 600;
+  min-width: 90px;
+  display: inline-block;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.selected-vehicle {
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  border: 1px solid rgba(58, 92, 168, 0.1);
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 6px rgba(58, 92, 168, 0.08);
+}
+
+.selected-vehicle p {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.selected-vehicle strong {
+  color: var(--primary-blue);
+  font-weight: 600;
+  min-width: 100px;
+  display: inline-block;
+}
+
+/* Añadir esta clase para asegurar que los inputs sean siempre visibles */
+.form-group.active label {
+  display: block;
+  margin-bottom: 0.75rem;
+  font-weight: 500;
+  color: var(--primary-blue);
+  transition: var(--transition-base);
+}
+
+.form-group.active .form-control {
+  border-color: var(--primary-blue);
+  background-color: var(--white);
+  box-shadow: 0 2px 4px rgba(58, 92, 168, 0.1);
+}
+
+/* Modifica los estilos existentes para usar los colores de la aplicación */
+.configuracion-container {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  animation: fadeIn 0.5s ease-out;
+  background-color: var(--white);
+}
+
+.configuracion-title {
+  color: var(--text-dark);
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 2.5rem;
+  text-align: left;
+  position: relative;
+  padding-bottom: 1rem;
+  animation: slideIn 0.5s ease-out;
+}
+
+.configuracion-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background: var(--primary-blue);
+  border-radius: 2px;
+  animation: expandWidth 0.5s ease-out 0.3s forwards;
+  width: 0;
+}
+
+.configuracion-section {
+  background: var(--white);
+  border-radius: var(--border-radius);
+  padding: 2.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 10px rgba(58, 92, 168, 0.08);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(58, 92, 168, 0.1);
+  animation: slideUp 0.5s ease-out;
+}
+
+.configuracion-section:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(58, 92, 168, 0.12);
+}
+
+.configuracion-section h2 {
+  color: var(--primary-blue);
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.btn-primary {
+  background: var(--primary-blue);
+  color: white;
+  border: none;
+}
+
+.btn-primary:hover {
+  background: var(--secondary-blue);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background: var(--background-light);
+  color: var(--text-dark);
+  border: 1px solid var(--border-color);
+}
+
+.btn-secondary:hover {
+  background: var(--background-hover);
+  transform: translateY(-2px);
+}
+
+/* Mejora de los vehículos seleccionados */
+.vehicle-card {
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(58, 92, 168, 0.08);
+}
+
+.vehicle-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(58, 92, 168, 0.12);
+}
+
+.vehicle-card.selected {
+  border-color: var(--primary-blue);
+  background-color: rgba(58, 92, 168, 0.05);
+  box-shadow: 0 4px 12px rgba(58, 92, 168, 0.15);
+}
+
+.vehicle-card.selected::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  background: var(--primary-blue);
+  clip-path: polygon(0 0, 100% 0, 100% 100%);
+}
+
+.vehicle-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid rgba(58, 92, 168, 0.1);
+  padding-bottom: 0.75rem;
+}
+
+.vehicle-card-header h3 {
+  margin: 0;
+  color: var(--primary-blue);
+  font-weight: 600;
+}
+
+.vehicle-plate {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background: rgba(58, 92, 168, 0.1);
+  color: var(--primary-blue);
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+}
+
+/* Mejora para los modales */
+.modal-content {
+  background: var(--white);
+  border-radius: var(--border-radius);
+  width: 90%;
+  max-width: 800px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  animation: slideIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 10px 25px rgba(58, 92, 168, 0.2);
+  border: 1px solid rgba(58, 92, 168, 0.1);
+}
+
+.modal-header {
+  background-color: var(--primary-blue);
+  padding: 1.5rem;
+  border-top-left-radius: var(--border-radius);
+  border-top-right-radius: var(--border-radius);
+}
+
+.modal-title {
+  color: var(--white);
+  margin: 0;
+  font-weight: 600;
+}
+
+.modal-close {
+  color: var(--white);
+}
+
+.modal-body {
+  padding: 2rem;
+}
+
+/* Estilos para el formulario de viaje */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.selected-vehicle {
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  border: 1px solid rgba(58, 92, 168, 0.1);
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 6px rgba(58, 92, 168, 0.08);
+}
+
+.selected-vehicle p {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.selected-vehicle strong {
+  color: var(--primary-blue);
+  font-weight: 600;
+  min-width: 100px;
+  display: inline-block;
+}
+
+/* Animación para expandir el subrayado del título */
+@keyframes expandWidth {
+  to {
+    width: 60px;
+  }
+}
+
+/* Estilos para el mensaje de éxito */
+.alert-success {
+  background-color: rgba(76, 175, 80, 0.1);
+  color: var(--button-green);
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--button-green);
+  font-weight: 500;
+  text-align: center;
+}
+
+.vehicles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .vehicles-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+  }
+}
+
+/* Añadir un borde a los inputs para que sean más visibles */
+.form-control {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: var(--white);
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--primary-blue);
+  box-shadow: 0 0 0 3px rgba(58, 92, 168, 0.15);
+}
+
+/* Asegurar visibilidad de placeholder */
+.form-control::placeholder {
+  color: rgba(34, 50, 90, 0.5);
 }

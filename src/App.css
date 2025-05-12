@@ -7,6 +7,15 @@
   --button-green: #4caf50;
   --button-green-hover: #388e3c;
   --white: #fff;
+  --error-red: #f44336;
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.1);
+  --border-radius-sm: 0.5rem;
+  --border-radius-md: 0.8rem;
+  --border-radius-lg: 1.2rem;
+  --transition-fast: all 0.2s ease;
+  --transition-normal: all 0.3s ease;
 }
 
 /* Estilos generales */
@@ -29,20 +38,43 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: var(--white);
+  color: var(--text-dark);
+  font-size: 16px;
+  line-height: 1.5;
 }
 
 button {
   font-family: inherit;
+  cursor: pointer;
 }
 
-input {
+input,
+select,
+textarea,
+button {
   font-family: inherit;
+  font-size: 1rem;
+}
+
+a {
+  color: var(--primary-blue);
+  text-decoration: none;
+  transition: var(--transition-fast);
+}
+
+a:hover {
+  color: var(--secondary-blue);
 }
 
 #root {
   height: 100%;
   display: flex;
   flex-direction: column;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
 }
 
 /* Estilos para el layout principal */
@@ -67,9 +99,9 @@ input {
   margin: 0 auto;
   padding: 2rem;
   background: var(--white);
-  border-radius: 12px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-  animation: fadeIn 0.5s ease
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-sm);
+  animation: fadeIn 0.5s ease;
 }
 
 /* Estilos para páginas de autenticación */
@@ -87,8 +119,8 @@ input {
 .register-box {
   background: var(--white);
   padding: 3rem 2.5rem;
-  border-radius: 1.2rem;
-  box-shadow: 0 4px 16px rgba(58, 92, 168, 0.16);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-lg);
   width: 100%;
   max-width: 420px;
   animation: fadeIn 0.5s ease-out;
@@ -136,39 +168,73 @@ input {
   }
 
   .content-container {
-    padding: 1rem;
+    padding: 1.5rem;
+    box-shadow: var(--shadow-sm);
   }
 
   .login-box,
   .register-box {
     padding: 2rem 1.5rem;
   }
+
+  body {
+    font-size: 15px;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .content-container {
+    padding: 1rem;
+    border-radius: var(--border-radius-md);
+  }
+
+  .login-box,
+  .register-box {
+    padding: 1.5rem 1.2rem;
+    border-radius: var(--border-radius-md);
+  }
+
+  .form-group {
+    margin-bottom: 1.2rem;
+  }
+
+  body {
+    font-size: 14px;
+  }
 }
 
 /* Estilos para las tarjetas y elementos de contenido */
 .card {
   background: var(--white);
-  border-radius: 8px;
+  border-radius: var(--border-radius-md);
   padding: 1.5rem;
   margin-bottom: 1rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  box-shadow: var(--shadow-sm);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   animation: scaleIn 0.5s ease-out;
 }
 
 .card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-md);
 }
 
 /* Estilos para botones */
 .btn {
   padding: 0.75rem 1.5rem;
-  border-radius: 6px;
+  border-radius: var(--border-radius-sm);
   border: none;
   font-weight: 500;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: var(--transition-normal);
   user-select: none;
 }
 
@@ -191,8 +257,8 @@ input {
   width: 100%;
   padding: 0.75rem;
   border: 1px solid #ddd;
-  border-radius: 6px;
-  transition: border-color 0.3s ease;
+  border-radius: var(--border-radius-sm);
+  transition: var(--transition-fast);
 }
 
 .form-control:focus {
@@ -248,19 +314,43 @@ input {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Transiciones suaves */
-.transition-all {
-  transition: all 0.3s ease;
+/* Optimizaciones para dispositivos táctiles */
+@media (hover: none) {
+  .card:hover,
+  .btn:hover {
+    transform: none;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .btn:active,
+  .card:active {
+    transform: scale(0.98);
+  }
+
+  a:active {
+    opacity: 0.7;
+  }
 }
 
-/* Efectos hover mejorados */
-.hover-lift {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+/* Correcciones para pantallas pequeñas */
+@media (max-width: 360px) {
+  .form-control,
+  .btn {
+    font-size: 16px; /* Prevenir zoom en inputs en iOS */
+  }
 
-.hover-lift:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  .btn {
+    width: 100%; /* Botones a ancho completo en pantallas muy pequeñas */
+    padding: 0.8rem 1rem;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+  }
 }
 
 /* Estilos para textos */

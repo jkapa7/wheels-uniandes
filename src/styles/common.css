@@ -1,8 +1,8 @@
 :root {
   --primary-blue: #2563eb;
   --primary-blue-dark: #1d4ed8;
-  --background-light: #f8fafc;
-  --background-hover: #f1f5f9;
+  --background-light: #e3eafc;
+  --background-hover: #d1e0ff;
   --text-dark: #1e293b;
   --text-light: #64748b;
   --white: #ffffff;
@@ -21,6 +21,17 @@
   box-sizing: border-box;
 }
 
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  position: relative;
+}
+
 body {
   font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     sans-serif;
@@ -28,6 +39,8 @@ body {
   color: var(--text-dark);
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  width: 100%;
 }
 
 .page-container {

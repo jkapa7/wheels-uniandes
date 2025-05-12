@@ -38,11 +38,11 @@ const Sidebar = () => {
         <button onClick={handleHomeClick} className="sidebar-button">
           <span>🏠</span> Inicio
         </button>
-        <Link to="/settings" className="sidebar-button">
-          <span>⚙️</span> Configuración
-        </Link>
         <Link to="/my-trips" className="sidebar-button">
           <span>🚗</span> Mis Viajes
+        </Link>
+        <Link to="/settings" className="sidebar-button">
+          <span>⚙️</span> Configuración
         </Link>
       </div>
       <div className="sidebar-bottom">

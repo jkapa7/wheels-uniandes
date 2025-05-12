@@ -112,6 +112,14 @@ const HomePage = () => {
     }));
   };
 
+  const handleClearFilters = () => {
+    setFilters({
+      driverGender: "",
+      origin: "",
+      destination: "",
+    });
+  };
+
   const filteredTrips = mockTrips.filter((trip) => {
     const matchesGender =
       !filters.driverGender || trip.driverGender === filters.driverGender;
@@ -129,7 +137,10 @@ const HomePage = () => {
       <h1 className="page-title">Viajes Disponibles</h1>
       <div className="home-container">
         <main className="home-content">
-          <FilterBar onFilterChange={handleFilterChange} />
+          <FilterBar
+            onFilterChange={handleFilterChange}
+            onClearFilters={handleClearFilters}
+          />
           <section className="trips-list">
             {filteredTrips.length > 0 ? (
               filteredTrips.map((trip, idx) => (

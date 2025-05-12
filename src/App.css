@@ -69,7 +69,7 @@ input {
   background: var(--white);
   border-radius: 12px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-  animation: fadeIn 0.5s ease;
+  animation: fadeIn 0.5s ease
 }
 
 /* Estilos para páginas de autenticación */
@@ -78,7 +78,6 @@ input {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
   width: 100%;
   padding: 2rem;
   background: var(--white);
